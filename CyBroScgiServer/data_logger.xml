@@ -1,0 +1,50 @@
+<!--
+Data logger configuration
+
+Configuration file contain <list>, <sample>, <alarm> and <event> sections.
+
+List is used for commonly repeated names. List name in braces create as many
+variables as there are items. Nesting is not allowed, but multiple lists can be
+used within the same variable: {cybro}.smb{smb}_current_{input}.
+
+Variables in "sample" section are stored periodically. Period is defined for
+each task separetely, available units are s (seconds), min (minutes), h (hours)
+and d (days).
+
+Variables in "alarm" or "event" groups are stored when value is changed from 0
+to 1 (or condition from false to true). Alarm can be binary or analog (high,
+low or range).
+-->
+
+<configuration>
+
+<list>
+  <group>
+    <name>cybro</name>
+    <item>c1000</item>
+  </group>
+</list>
+
+<alarm>
+  <task>
+    <period>1min</period>
+    <class>critical</class>
+    <message>Peč v okvari</message>
+    <variable>{cybro}.Q_LDnevna1</variable>
+    <enabled>true</enabled>
+  </task>
+</alarm>
+
+<event>
+  <task>
+    <period>1min</period>
+    <class>simulation</class>
+    <message>Peč gori</message>
+    <variable>{cybro}.Q_LDnevna1</variable>
+    <enabled>true</enabled>
+  </task>
+  
+
+</event>
+
+</configuration>
