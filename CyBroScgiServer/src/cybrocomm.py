@@ -1,4 +1,5 @@
 import struct
+import binascii
 import socket, threading
 import exceptions
 import datetime, time
@@ -338,7 +339,8 @@ class CybroComm(CybroBase):
     def __create_request_frame(self, data):
         data = struct.pack("<2B", Request, TypeCommand) + data
         header = self.__create_header_frame_part(len(data))
-        password = self.__create_password_frame_part()
+        # password = self.__create_password_frame_part()
+        password = struct.pack("<1H", 0) # none password
         crc = self.calc_crc(header + data + password)
 
         return header + data + password + struct.pack("<1H", crc)
@@ -348,6 +350,40 @@ class CybroComm(CybroBase):
     #    frame functions
     #
     #-------------------------------------------------------------------------
+
+    def send_raw(self, frame):
+        # handle retry count
+        retry_number = 1
+        frame_received = False
+
+        while not frame_received and retry_number <= self.controller.config.retry_count:
+            if not self.controller.comm_proxy.send_frame_online(frame):
+                msg = "Error sending frame."
+                self.log.error(msg)
+                raise CommSendError, msg
+
+            try:
+                rx_frame = self.controller.comm_proxy.receive_frame_online()
+                frame_received = True
+            except CommTimeout:
+                retry_number += 1
+
+        print "receive data %s" % (binascii.b2a_hex(rx_frame))
+        data = self.__extract_frame_data(rx_frame)
+        if len(data) < 2:
+            msg = "(c%d) Invalid received data length." % self.plc_nad
+            self.log.error(msg)
+            self.set_comm_err("frame")
+            raise CommFrameError, msg
+
+        if ord(data[0]) == ResponseCodeAck:
+            return data[2 : ]
+        else:
+            msg = "(c%d) Controller returned response error code %d." % (self.plc_nad, ord(data[0]))
+            self.log.error(msg)
+            self.set_comm_err("nak")
+            raise CommNAK, msg
+
 
     def send_frame(self, frame, get_raw_response = False):
 
@@ -428,18 +464,25 @@ class CybroComm(CybroBase):
 
     def ping(self):
         data = struct.pack("<1B", CmdPing)
-        self.send_frame(self.__create_request_frame(data))
+        send_data = self.__create_request_frame(data)
+        print "send data %s" % (binascii.b2a_hex(send_data))
+        self.send_raw(send_data)
+        # self.send_frame(self.__create_request_frame(data))
 
     #-------------------------------------------------------------------------
 
     def read_status(self):
         tx_data = struct.pack("<1B", CmdReadStatus)
-        rx_data = self.send_frame(self.__create_request_frame(tx_data))
+        #rx_data = self.send_frame(self.__create_request_frame(tx_data))
+        send_data = self.__create_request_frame(tx_data)
+        print "send data %s" % (binascii.b2a_hex(send_data))
+        rx_data = self.send_raw(send_data)
 
         if len(rx_data) >= 2:
             result = ReadStatusResponse()
             result.system_status = ord(rx_data[0])
             result.plc_status = ord(rx_data[1])
+            print "read status %s %s" % (result.plc_status, result.get_str())
             return result
         else:
             msg = "(c%d) Invalid data format." % self.plc_nad
@@ -560,7 +603,8 @@ class CybroComm(CybroBase):
         for tag in tags:
             if tag.valid:
                 tx_data += struct.pack("<H", tag.address)
-        data = self.send_frame(self.__create_request_frame(tx_data))
+        # data = self.send_frame(self.__create_request_frame(tx_data))
+        data = self.send_raw(self.__create_request_frame(tx_data))
 
         n = 0
 
@@ -683,7 +727,7 @@ class CybroComm(CybroBase):
             else:
                 tx_data += struct.pack("<1l", tag.value)
 
-        self.send_frame(self.__create_request_frame(tx_data))
+        self.send_raw(self.__create_request_frame(tx_data))
 
     #-------------------------------------------------------------------------
 
