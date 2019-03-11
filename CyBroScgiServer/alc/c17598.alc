@@ -1,0 +1,719 @@
+;CPU CyBro-2 17598 
+;2019-02-19 15:40:54
+;Addr Id    Array Offset Size Scope  Type  Name                             
+0000  00000 1     0      1    global bit   cybro_ix00                       Binary input (0-open, 1-closed).
+0001  00000 1     0      1    global bit   cybro_ix01                       Binary input (0-open, 1-closed).
+0002  00000 1     0      1    global bit   cybro_ix02                       Binary input (0-open, 1-closed).
+0003  00000 1     0      1    global bit   cybro_ix03                       Binary input (0-open, 1-closed).
+0004  00000 1     0      1    global bit   cybro_ix04                       Binary input (0-open, 1-closed).
+0005  00000 1     0      1    global bit   cybro_ix05                       Binary input (0-open, 1-closed).
+0006  00000 1     0      1    global bit   cybro_ix06                       Binary input (0-open, 1-closed).
+0007  00000 1     0      1    global bit   cybro_ix07                       Binary input (0-open, 1-closed).
+0008  00000 1     0      1    global bit   cybro_ix08                       Binary input (0-open, 1-closed).
+0009  00000 1     0      1    global bit   cybro_ix09                       Binary input (0-open, 1-closed).
+0010  00000 1     0      1    global bit   first_scan                       Active during first scan only.
+0011  00000 1     0      1    global bit   scan_overrun                     Scan time longer than 60ms caused scan overrun error.
+0012  00000 1     0      1    global bit   general_error                    Logical or of IEX general errors, indicates that at least one module has an error.
+0013  00000 1     0      1    global bit   clock_10ms                       10ms clock (5ms+5ms).
+0014  00000 1     0      1    global bit   clock_100ms                      100ms clock (50ms+50ms).
+0015  00000 1     0      1    global bit   clock_1s                         1s clock (0.5s+0.5s).
+0016  00000 1     0      1    global bit   clock_10s                        10s clock (5s+5s).
+0017  00000 1     0      1    global bit   clock_1min                       1min clock (30s+30s).
+0018  00000 1     0      1    global bit   retentive_fail                   Indicates that retentive memory failed.
+0020  00000 1     0      1    global bit   bc00_ix00_up                     Binary input (0-open, 1-closed).
+0021  00000 1     0      1    global bit   bc00_ix00_dn                     Binary input (0-open, 1-closed).
+0022  00000 1     0      1    global bit   bc00_ix01_up                     Binary input (0-open, 1-closed).
+0023  00000 1     0      1    global bit   bc00_ix01_dn                     Binary input (0-open, 1-closed).
+0024  00000 1     0      1    global bit   bc00_ix02_up                     Binary input (0-open, 1-closed).
+0025  00000 1     0      1    global bit   bc00_ix02_dn                     Binary input (0-open, 1-closed).
+0026  00000 1     0      1    global bit   bc00_ix03_up                     Binary input (0-open, 1-closed).
+0027  00000 1     0      1    global bit   bc00_ix03_dn                     Binary input (0-open, 1-closed).
+0028  00000 1     0      1    global bit   bc00_ix04_up                     Binary input (0-open, 1-closed).
+0029  00000 1     0      1    global bit   bc00_ix04_dn                     Binary input (0-open, 1-closed).
+0030  00000 1     0      1    global bit   bc00_general_error               Combined system error (timeout or program error), module is not operational.
+0031  00000 1     0      1    global bit   bc00_timeout_error               Communication failure, no messages are received from module.
+0032  00000 1     0      1    global bit   bc00_program_error               No valid firmware, bootloader active. Module is not functional.
+0033  00000 1     0      1    global bit   bc00_bus_error                   Bus quality warning, one or more communication errors detected.
+0034  00000 1     0      1    global bit   bc00_autoaddress_active          Autoaddress procedure is active (0-normal, 1-autoaddressing).
+0036  00000 1     0      1    global bit   bc00_qxs00_up                    Actual relay state (0-open, 1-closed).
+0037  00000 1     0      1    global bit   bc00_qxs00_dn                    Actual relay state (0-open, 1-closed).
+0038  00000 1     0      1    global bit   bc00_qxs01_up                    Actual relay state (0-open, 1-closed).
+0039  00000 1     0      1    global bit   bc00_qxs01_dn                    Actual relay state (0-open, 1-closed).
+003A  00000 1     0      1    global bit   bc00_qxs02_up                    Actual relay state (0-open, 1-closed).
+003B  00000 1     0      1    global bit   bc00_qxs02_dn                    Actual relay state (0-open, 1-closed).
+003C  00000 1     0      1    global bit   bc00_qxs03_up                    Actual relay state (0-open, 1-closed).
+003D  00000 1     0      1    global bit   bc00_qxs03_dn                    Actual relay state (0-open, 1-closed).
+003E  00000 1     0      1    global bit   bc00_qxs04_up                    Actual relay state (0-open, 1-closed).
+003F  00000 1     0      1    global bit   bc00_qxs04_dn                    Actual relay state (0-open, 1-closed).
+0040  00000 1     0      1    global bit   bc01_ix00_up                     Binary input (0-open, 1-closed).
+0041  00000 1     0      1    global bit   bc01_ix00_dn                     Binary input (0-open, 1-closed).
+0042  00000 1     0      1    global bit   bc01_ix01_up                     Binary input (0-open, 1-closed).
+0043  00000 1     0      1    global bit   bc01_ix01_dn                     Binary input (0-open, 1-closed).
+0044  00000 1     0      1    global bit   bc01_ix02_up                     Binary input (0-open, 1-closed).
+0045  00000 1     0      1    global bit   bc01_ix02_dn                     Binary input (0-open, 1-closed).
+0046  00000 1     0      1    global bit   bc01_ix03_up                     Binary input (0-open, 1-closed).
+0047  00000 1     0      1    global bit   bc01_ix03_dn                     Binary input (0-open, 1-closed).
+0048  00000 1     0      1    global bit   bc01_ix04_up                     Binary input (0-open, 1-closed).
+0049  00000 1     0      1    global bit   bc01_ix04_dn                     Binary input (0-open, 1-closed).
+0050  00000 1     0      1    global bit   bc01_general_error               Combined system error (timeout or program error), module is not operational.
+0051  00000 1     0      1    global bit   bc01_timeout_error               Communication failure, no messages are received from module.
+0052  00000 1     0      1    global bit   bc01_program_error               No valid firmware, bootloader active. Module is not functional.
+0053  00000 1     0      1    global bit   bc01_bus_error                   Bus quality warning, one or more communication errors detected.
+0054  00000 1     0      1    global bit   bc01_autoaddress_active          Autoaddress procedure is active (0-normal, 1-autoaddressing).
+0056  00000 1     0      1    global bit   bc01_qxs00_up                    Actual relay state (0-open, 1-closed).
+0057  00000 1     0      1    global bit   bc01_qxs00_dn                    Actual relay state (0-open, 1-closed).
+0058  00000 1     0      1    global bit   bc01_qxs01_up                    Actual relay state (0-open, 1-closed).
+0059  00000 1     0      1    global bit   bc01_qxs01_dn                    Actual relay state (0-open, 1-closed).
+005A  00000 1     0      1    global bit   bc01_qxs02_up                    Actual relay state (0-open, 1-closed).
+005B  00000 1     0      1    global bit   bc01_qxs02_dn                    Actual relay state (0-open, 1-closed).
+005C  00000 1     0      1    global bit   bc01_qxs03_up                    Actual relay state (0-open, 1-closed).
+005D  00000 1     0      1    global bit   bc01_qxs03_dn                    Actual relay state (0-open, 1-closed).
+005E  00000 1     0      1    global bit   bc01_qxs04_up                    Actual relay state (0-open, 1-closed).
+005F  00000 1     0      1    global bit   bc01_qxs04_dn                    Actual relay state (0-open, 1-closed).
+0060  00000 1     0      1    global bit   bc02_ix00_up                     Binary input (0-open, 1-closed).
+0061  00000 1     0      1    global bit   bc02_ix00_dn                     Binary input (0-open, 1-closed).
+0062  00000 1     0      1    global bit   bc02_ix01_up                     Binary input (0-open, 1-closed).
+0063  00000 1     0      1    global bit   bc02_ix01_dn                     Binary input (0-open, 1-closed).
+0064  00000 1     0      1    global bit   bc02_ix02_up                     Binary input (0-open, 1-closed).
+0065  00000 1     0      1    global bit   bc02_ix02_dn                     Binary input (0-open, 1-closed).
+0066  00000 1     0      1    global bit   bc02_ix03_up                     Binary input (0-open, 1-closed).
+0067  00000 1     0      1    global bit   bc02_ix03_dn                     Binary input (0-open, 1-closed).
+0068  00000 1     0      1    global bit   bc02_ix04_up                     Binary input (0-open, 1-closed).
+0069  00000 1     0      1    global bit   bc02_ix04_dn                     Binary input (0-open, 1-closed).
+0070  00000 1     0      1    global bit   bc02_general_error               Combined system error (timeout or program error), module is not operational.
+0071  00000 1     0      1    global bit   bc02_timeout_error               Communication failure, no messages are received from module.
+0072  00000 1     0      1    global bit   bc02_program_error               No valid firmware, bootloader active. Module is not functional.
+0073  00000 1     0      1    global bit   bc02_bus_error                   Bus quality warning, one or more communication errors detected.
+0074  00000 1     0      1    global bit   bc02_autoaddress_active          Autoaddress procedure is active (0-normal, 1-autoaddressing).
+0076  00000 1     0      1    global bit   bc02_qxs00_up                    Actual relay state (0-open, 1-closed).
+0077  00000 1     0      1    global bit   bc02_qxs00_dn                    Actual relay state (0-open, 1-closed).
+0078  00000 1     0      1    global bit   bc02_qxs01_up                    Actual relay state (0-open, 1-closed).
+0079  00000 1     0      1    global bit   bc02_qxs01_dn                    Actual relay state (0-open, 1-closed).
+007A  00000 1     0      1    global bit   bc02_qxs02_up                    Actual relay state (0-open, 1-closed).
+007B  00000 1     0      1    global bit   bc02_qxs02_dn                    Actual relay state (0-open, 1-closed).
+007C  00000 1     0      1    global bit   bc02_qxs03_up                    Actual relay state (0-open, 1-closed).
+007D  00000 1     0      1    global bit   bc02_qxs03_dn                    Actual relay state (0-open, 1-closed).
+007E  00000 1     0      1    global bit   bc02_qxs04_up                    Actual relay state (0-open, 1-closed).
+007F  00000 1     0      1    global bit   bc02_qxs04_dn                    Actual relay state (0-open, 1-closed).
+0080  00000 1     0      1    global bit   bc03_ix00_up                     Binary input (0-open, 1-closed).
+0081  00000 1     0      1    global bit   bc03_ix00_dn                     Binary input (0-open, 1-closed).
+0082  00000 1     0      1    global bit   bc03_ix01_up                     Binary input (0-open, 1-closed).
+0083  00000 1     0      1    global bit   bc03_ix01_dn                     Binary input (0-open, 1-closed).
+0084  00000 1     0      1    global bit   bc03_ix02_up                     Binary input (0-open, 1-closed).
+0085  00000 1     0      1    global bit   bc03_ix02_dn                     Binary input (0-open, 1-closed).
+0086  00000 1     0      1    global bit   bc03_ix03_up                     Binary input (0-open, 1-closed).
+0087  00000 1     0      1    global bit   bc03_ix03_dn                     Binary input (0-open, 1-closed).
+0088  00000 1     0      1    global bit   bc03_ix04_up                     Binary input (0-open, 1-closed).
+0089  00000 1     0      1    global bit   bc03_ix04_dn                     Binary input (0-open, 1-closed).
+0090  00000 1     0      1    global bit   bc03_general_error               Combined system error (timeout or program error), module is not operational.
+0091  00000 1     0      1    global bit   bc03_timeout_error               Communication failure, no messages are received from module.
+0092  00000 1     0      1    global bit   bc03_program_error               No valid firmware, bootloader active. Module is not functional.
+0093  00000 1     0      1    global bit   bc03_bus_error                   Bus quality warning, one or more communication errors detected.
+0094  00000 1     0      1    global bit   bc03_autoaddress_active          Autoaddress procedure is active (0-normal, 1-autoaddressing).
+0096  00000 1     0      1    global bit   bc03_qxs00_up                    Actual relay state (0-open, 1-closed).
+0097  00000 1     0      1    global bit   bc03_qxs00_dn                    Actual relay state (0-open, 1-closed).
+0098  00000 1     0      1    global bit   bc03_qxs01_up                    Actual relay state (0-open, 1-closed).
+0099  00000 1     0      1    global bit   bc03_qxs01_dn                    Actual relay state (0-open, 1-closed).
+009A  00000 1     0      1    global bit   bc03_qxs02_up                    Actual relay state (0-open, 1-closed).
+009B  00000 1     0      1    global bit   bc03_qxs02_dn                    Actual relay state (0-open, 1-closed).
+009C  00000 1     0      1    global bit   bc03_qxs03_up                    Actual relay state (0-open, 1-closed).
+009D  00000 1     0      1    global bit   bc03_qxs03_dn                    Actual relay state (0-open, 1-closed).
+009E  00000 1     0      1    global bit   bc03_qxs04_up                    Actual relay state (0-open, 1-closed).
+009F  00000 1     0      1    global bit   bc03_qxs04_dn                    Actual relay state (0-open, 1-closed).
+00A0  00000 1     0      1    global bit   bc04_ix00_up                     Binary input (0-open, 1-closed).
+00A1  00000 1     0      1    global bit   bc04_ix00_dn                     Binary input (0-open, 1-closed).
+00A2  00000 1     0      1    global bit   bc04_ix01_up                     Binary input (0-open, 1-closed).
+00A3  00000 1     0      1    global bit   bc04_ix01_dn                     Binary input (0-open, 1-closed).
+00A4  00000 1     0      1    global bit   bc04_ix02_up                     Binary input (0-open, 1-closed).
+00A5  00000 1     0      1    global bit   bc04_ix02_dn                     Binary input (0-open, 1-closed).
+00A6  00000 1     0      1    global bit   bc04_ix03_up                     Binary input (0-open, 1-closed).
+00A7  00000 1     0      1    global bit   bc04_ix03_dn                     Binary input (0-open, 1-closed).
+00A8  00000 1     0      1    global bit   bc04_ix04_up                     Binary input (0-open, 1-closed).
+00A9  00000 1     0      1    global bit   bc04_ix04_dn                     Binary input (0-open, 1-closed).
+00B0  00000 1     0      1    global bit   bc04_general_error               Combined system error (timeout or program error), module is not operational.
+00B1  00000 1     0      1    global bit   bc04_timeout_error               Communication failure, no messages are received from module.
+00B2  00000 1     0      1    global bit   bc04_program_error               No valid firmware, bootloader active. Module is not functional.
+00B3  00000 1     0      1    global bit   bc04_bus_error                   Bus quality warning, one or more communication errors detected.
+00B4  00000 1     0      1    global bit   bc04_autoaddress_active          Autoaddress procedure is active (0-normal, 1-autoaddressing).
+00B6  00000 1     0      1    global bit   bc04_qxs00_up                    Actual relay state (0-open, 1-closed).
+00B7  00000 1     0      1    global bit   bc04_qxs00_dn                    Actual relay state (0-open, 1-closed).
+00B8  00000 1     0      1    global bit   bc04_qxs01_up                    Actual relay state (0-open, 1-closed).
+00B9  00000 1     0      1    global bit   bc04_qxs01_dn                    Actual relay state (0-open, 1-closed).
+00BA  00000 1     0      1    global bit   bc04_qxs02_up                    Actual relay state (0-open, 1-closed).
+00BB  00000 1     0      1    global bit   bc04_qxs02_dn                    Actual relay state (0-open, 1-closed).
+00BC  00000 1     0      1    global bit   bc04_qxs03_up                    Actual relay state (0-open, 1-closed).
+00BD  00000 1     0      1    global bit   bc04_qxs03_dn                    Actual relay state (0-open, 1-closed).
+00BE  00000 1     0      1    global bit   bc04_qxs04_up                    Actual relay state (0-open, 1-closed).
+00BF  00000 1     0      1    global bit   bc04_qxs04_dn                    Actual relay state (0-open, 1-closed).
+00C0  00000 1     0      1    global bit   bc05_ix00_up                     Binary input (0-open, 1-closed).
+00C1  00000 1     0      1    global bit   bc05_ix00_dn                     Binary input (0-open, 1-closed).
+00C2  00000 1     0      1    global bit   bc05_ix01_up                     Binary input (0-open, 1-closed).
+00C3  00000 1     0      1    global bit   bc05_ix01_dn                     Binary input (0-open, 1-closed).
+00C4  00000 1     0      1    global bit   bc05_ix02_up                     Binary input (0-open, 1-closed).
+00C5  00000 1     0      1    global bit   bc05_ix02_dn                     Binary input (0-open, 1-closed).
+00C6  00000 1     0      1    global bit   bc05_ix03_up                     Binary input (0-open, 1-closed).
+00C7  00000 1     0      1    global bit   bc05_ix03_dn                     Binary input (0-open, 1-closed).
+00C8  00000 1     0      1    global bit   bc05_ix04_up                     Binary input (0-open, 1-closed).
+00C9  00000 1     0      1    global bit   bc05_ix04_dn                     Binary input (0-open, 1-closed).
+00D0  00000 1     0      1    global bit   bc05_general_error               Combined system error (timeout or program error), module is not operational.
+00D1  00000 1     0      1    global bit   bc05_timeout_error               Communication failure, no messages are received from module.
+00D2  00000 1     0      1    global bit   bc05_program_error               No valid firmware, bootloader active. Module is not functional.
+00D3  00000 1     0      1    global bit   bc05_bus_error                   Bus quality warning, one or more communication errors detected.
+00D4  00000 1     0      1    global bit   bc05_autoaddress_active          Autoaddress procedure is active (0-normal, 1-autoaddressing).
+00D6  00000 1     0      1    global bit   bc05_qxs00_up                    Actual relay state (0-open, 1-closed).
+00D7  00000 1     0      1    global bit   bc05_qxs00_dn                    Actual relay state (0-open, 1-closed).
+00D8  00000 1     0      1    global bit   bc05_qxs01_up                    Actual relay state (0-open, 1-closed).
+00D9  00000 1     0      1    global bit   bc05_qxs01_dn                    Actual relay state (0-open, 1-closed).
+00DA  00000 1     0      1    global bit   bc05_qxs02_up                    Actual relay state (0-open, 1-closed).
+00DB  00000 1     0      1    global bit   bc05_qxs02_dn                    Actual relay state (0-open, 1-closed).
+00DC  00000 1     0      1    global bit   bc05_qxs03_up                    Actual relay state (0-open, 1-closed).
+00DD  00000 1     0      1    global bit   bc05_qxs03_dn                    Actual relay state (0-open, 1-closed).
+00DE  00000 1     0      1    global bit   bc05_qxs04_up                    Actual relay state (0-open, 1-closed).
+00DF  00000 1     0      1    global bit   bc05_qxs04_dn                    Actual relay state (0-open, 1-closed).
+00E0  00000 1     0      1    global bit   bc06_ix00_up                     Binary input (0-open, 1-closed).
+00E1  00000 1     0      1    global bit   bc06_ix00_dn                     Binary input (0-open, 1-closed).
+00E2  00000 1     0      1    global bit   bc06_ix01_up                     Binary input (0-open, 1-closed).
+00E3  00000 1     0      1    global bit   bc06_ix01_dn                     Binary input (0-open, 1-closed).
+00E4  00000 1     0      1    global bit   bc06_ix02_up                     Binary input (0-open, 1-closed).
+00E5  00000 1     0      1    global bit   bc06_ix02_dn                     Binary input (0-open, 1-closed).
+00E6  00000 1     0      1    global bit   bc06_ix03_up                     Binary input (0-open, 1-closed).
+00E7  00000 1     0      1    global bit   bc06_ix03_dn                     Binary input (0-open, 1-closed).
+00E8  00000 1     0      1    global bit   bc06_ix04_up                     Binary input (0-open, 1-closed).
+00E9  00000 1     0      1    global bit   bc06_ix04_dn                     Binary input (0-open, 1-closed).
+00F0  00000 1     0      1    global bit   bc06_general_error               Combined system error (timeout or program error), module is not operational.
+00F1  00000 1     0      1    global bit   bc06_timeout_error               Communication failure, no messages are received from module.
+00F2  00000 1     0      1    global bit   bc06_program_error               No valid firmware, bootloader active. Module is not functional.
+00F3  00000 1     0      1    global bit   bc06_bus_error                   Bus quality warning, one or more communication errors detected.
+00F4  00000 1     0      1    global bit   bc06_autoaddress_active          Autoaddress procedure is active (0-normal, 1-autoaddressing).
+00F6  00000 1     0      1    global bit   bc06_qxs00_up                    Actual relay state (0-open, 1-closed).
+00F7  00000 1     0      1    global bit   bc06_qxs00_dn                    Actual relay state (0-open, 1-closed).
+00F8  00000 1     0      1    global bit   bc06_qxs01_up                    Actual relay state (0-open, 1-closed).
+00F9  00000 1     0      1    global bit   bc06_qxs01_dn                    Actual relay state (0-open, 1-closed).
+00FA  00000 1     0      1    global bit   bc06_qxs02_up                    Actual relay state (0-open, 1-closed).
+00FB  00000 1     0      1    global bit   bc06_qxs02_dn                    Actual relay state (0-open, 1-closed).
+00FC  00000 1     0      1    global bit   bc06_qxs03_up                    Actual relay state (0-open, 1-closed).
+00FD  00000 1     0      1    global bit   bc06_qxs03_dn                    Actual relay state (0-open, 1-closed).
+00FE  00000 1     0      1    global bit   bc06_qxs04_up                    Actual relay state (0-open, 1-closed).
+00FF  00000 1     0      1    global bit   bc06_qxs04_dn                    Actual relay state (0-open, 1-closed).
+0100  00000 1     0      1    global bit   bc07_ix00_up                     Binary input (0-open, 1-closed).
+0101  00000 1     0      1    global bit   bc07_ix00_dn                     Binary input (0-open, 1-closed).
+0102  00000 1     0      1    global bit   bc07_ix01_up                     Binary input (0-open, 1-closed).
+0103  00000 1     0      1    global bit   bc07_ix01_dn                     Binary input (0-open, 1-closed).
+0104  00000 1     0      1    global bit   bc07_ix02_up                     Binary input (0-open, 1-closed).
+0105  00000 1     0      1    global bit   bc07_ix02_dn                     Binary input (0-open, 1-closed).
+0106  00000 1     0      1    global bit   bc07_ix03_up                     Binary input (0-open, 1-closed).
+0107  00000 1     0      1    global bit   bc07_ix03_dn                     Binary input (0-open, 1-closed).
+0108  00000 1     0      1    global bit   bc07_ix04_up                     Binary input (0-open, 1-closed).
+0109  00000 1     0      1    global bit   bc07_ix04_dn                     Binary input (0-open, 1-closed).
+0110  00000 1     0      1    global bit   bc07_general_error               Combined system error (timeout or program error), module is not operational.
+0111  00000 1     0      1    global bit   bc07_timeout_error               Communication failure, no messages are received from module.
+0112  00000 1     0      1    global bit   bc07_program_error               No valid firmware, bootloader active. Module is not functional.
+0113  00000 1     0      1    global bit   bc07_bus_error                   Bus quality warning, one or more communication errors detected.
+0114  00000 1     0      1    global bit   bc07_autoaddress_active          Autoaddress procedure is active (0-normal, 1-autoaddressing).
+0116  00000 1     0      1    global bit   bc07_qxs00_up                    Actual relay state (0-open, 1-closed).
+0117  00000 1     0      1    global bit   bc07_qxs00_dn                    Actual relay state (0-open, 1-closed).
+0118  00000 1     0      1    global bit   bc07_qxs01_up                    Actual relay state (0-open, 1-closed).
+0119  00000 1     0      1    global bit   bc07_qxs01_dn                    Actual relay state (0-open, 1-closed).
+011A  00000 1     0      1    global bit   bc07_qxs02_up                    Actual relay state (0-open, 1-closed).
+011B  00000 1     0      1    global bit   bc07_qxs02_dn                    Actual relay state (0-open, 1-closed).
+011C  00000 1     0      1    global bit   bc07_qxs03_up                    Actual relay state (0-open, 1-closed).
+011D  00000 1     0      1    global bit   bc07_qxs03_dn                    Actual relay state (0-open, 1-closed).
+011E  00000 1     0      1    global bit   bc07_qxs04_up                    Actual relay state (0-open, 1-closed).
+011F  00000 1     0      1    global bit   bc07_qxs04_dn                    Actual relay state (0-open, 1-closed).
+0120  00000 1     0      1    global bit   bc08_ix00_up                     Binary input (0-open, 1-closed).
+0121  00000 1     0      1    global bit   bc08_ix00_dn                     Binary input (0-open, 1-closed).
+0122  00000 1     0      1    global bit   bc08_ix01_up                     Binary input (0-open, 1-closed).
+0123  00000 1     0      1    global bit   bc08_ix01_dn                     Binary input (0-open, 1-closed).
+0124  00000 1     0      1    global bit   bc08_ix02_up                     Binary input (0-open, 1-closed).
+0125  00000 1     0      1    global bit   bc08_ix02_dn                     Binary input (0-open, 1-closed).
+0126  00000 1     0      1    global bit   bc08_ix03_up                     Binary input (0-open, 1-closed).
+0127  00000 1     0      1    global bit   bc08_ix03_dn                     Binary input (0-open, 1-closed).
+0128  00000 1     0      1    global bit   bc08_ix04_up                     Binary input (0-open, 1-closed).
+0129  00000 1     0      1    global bit   bc08_ix04_dn                     Binary input (0-open, 1-closed).
+0130  00000 1     0      1    global bit   bc08_general_error               Combined system error (timeout or program error), module is not operational.
+0131  00000 1     0      1    global bit   bc08_timeout_error               Communication failure, no messages are received from module.
+0132  00000 1     0      1    global bit   bc08_program_error               No valid firmware, bootloader active. Module is not functional.
+0133  00000 1     0      1    global bit   bc08_bus_error                   Bus quality warning, one or more communication errors detected.
+0134  00000 1     0      1    global bit   bc08_autoaddress_active          Autoaddress procedure is active (0-normal, 1-autoaddressing).
+0136  00000 1     0      1    global bit   bc08_qxs00_up                    Actual relay state (0-open, 1-closed).
+0137  00000 1     0      1    global bit   bc08_qxs00_dn                    Actual relay state (0-open, 1-closed).
+0138  00000 1     0      1    global bit   bc08_qxs01_up                    Actual relay state (0-open, 1-closed).
+0139  00000 1     0      1    global bit   bc08_qxs01_dn                    Actual relay state (0-open, 1-closed).
+013A  00000 1     0      1    global bit   bc08_qxs02_up                    Actual relay state (0-open, 1-closed).
+013B  00000 1     0      1    global bit   bc08_qxs02_dn                    Actual relay state (0-open, 1-closed).
+013C  00000 1     0      1    global bit   bc08_qxs03_up                    Actual relay state (0-open, 1-closed).
+013D  00000 1     0      1    global bit   bc08_qxs03_dn                    Actual relay state (0-open, 1-closed).
+013E  00000 1     0      1    global bit   bc08_qxs04_up                    Actual relay state (0-open, 1-closed).
+013F  00000 1     0      1    global bit   bc08_qxs04_dn                    Actual relay state (0-open, 1-closed).
+0140  00000 1     0      1    global bit   bc09_ix00_up                     Binary input (0-open, 1-closed).
+0141  00000 1     0      1    global bit   bc09_ix00_dn                     Binary input (0-open, 1-closed).
+0142  00000 1     0      1    global bit   bc09_ix01_up                     Binary input (0-open, 1-closed).
+0143  00000 1     0      1    global bit   bc09_ix01_dn                     Binary input (0-open, 1-closed).
+0144  00000 1     0      1    global bit   bc09_ix02_up                     Binary input (0-open, 1-closed).
+0145  00000 1     0      1    global bit   bc09_ix02_dn                     Binary input (0-open, 1-closed).
+0146  00000 1     0      1    global bit   bc09_ix03_up                     Binary input (0-open, 1-closed).
+0147  00000 1     0      1    global bit   bc09_ix03_dn                     Binary input (0-open, 1-closed).
+0148  00000 1     0      1    global bit   bc09_ix04_up                     Binary input (0-open, 1-closed).
+0149  00000 1     0      1    global bit   bc09_ix04_dn                     Binary input (0-open, 1-closed).
+0150  00000 1     0      1    global bit   bc09_general_error               Combined system error (timeout or program error), module is not operational.
+0151  00000 1     0      1    global bit   bc09_timeout_error               Communication failure, no messages are received from module.
+0152  00000 1     0      1    global bit   bc09_program_error               No valid firmware, bootloader active. Module is not functional.
+0153  00000 1     0      1    global bit   bc09_bus_error                   Bus quality warning, one or more communication errors detected.
+0154  00000 1     0      1    global bit   bc09_autoaddress_active          Autoaddress procedure is active (0-normal, 1-autoaddressing).
+0156  00000 1     0      1    global bit   bc09_qxs00_up                    Actual relay state (0-open, 1-closed).
+0157  00000 1     0      1    global bit   bc09_qxs00_dn                    Actual relay state (0-open, 1-closed).
+0158  00000 1     0      1    global bit   bc09_qxs01_up                    Actual relay state (0-open, 1-closed).
+0159  00000 1     0      1    global bit   bc09_qxs01_dn                    Actual relay state (0-open, 1-closed).
+015A  00000 1     0      1    global bit   bc09_qxs02_up                    Actual relay state (0-open, 1-closed).
+015B  00000 1     0      1    global bit   bc09_qxs02_dn                    Actual relay state (0-open, 1-closed).
+015C  00000 1     0      1    global bit   bc09_qxs03_up                    Actual relay state (0-open, 1-closed).
+015D  00000 1     0      1    global bit   bc09_qxs03_dn                    Actual relay state (0-open, 1-closed).
+015E  00000 1     0      1    global bit   bc09_qxs04_up                    Actual relay state (0-open, 1-closed).
+015F  00000 1     0      1    global bit   bc09_qxs04_dn                    Actual relay state (0-open, 1-closed).
+0400  00000 1     0      1    global bit   cybro_qx00                       Relay output (0-open, 1-closed).
+0401  00000 1     0      1    global bit   cybro_qx01                       Relay output (0-open, 1-closed).
+0402  00000 1     0      1    global bit   cybro_qx02                       Relay output (0-open, 1-closed).
+0403  00000 1     0      1    global bit   cybro_qx03                       Relay output (0-open, 1-closed).
+0404  00000 1     0      1    global bit   cybro_qx04                       Relay output (0-open, 1-closed).
+0405  00000 1     0      1    global bit   cybro_qx05                       Relay output (0-open, 1-closed).
+0406  00000 1     0      1    global bit   cybro_qx06                       Relay output (0-open, 1-closed).
+0407  00000 1     0      1    global bit   cybro_qx07                       Relay output (0-open, 1-closed).
+0410  00000 1     0      1    global bit   cybro_outputs_off                If active, all CyBro binary outputs instantly go off. IEX modules are not affected.
+0411  00000 1     0      1    global bit   no_input_filter                  Set to turn off 5ms filter for CyBro binary inputs. Use when high-speed inputs are needed.
+0412  00000 1     0      1    global bit   rtc_read_req                     Set to read current date/time from RTC. Will automatically reset when finished.
+0413  00000 1     0      1    global bit   rtc_write_req                    Set to write current date/time to RTC. Will automatically reset when finished.
+0414  00000 1     0      1    global bit   ee_read_req                      Set to read all EE variables from EEPROM. It is automatically set during power-up. Will automatically reset when finished.
+0415  00000 1     0      1    global bit   ee_write_req                     Set to write all EE variables to EEPROM. Also needs ee_write_magic to enable writing. Will automatically reset when finished.
+0416  00000 1     0      1    global bit   push_message_req                 Set to send ethernet push message, used to open connection between CyBro and push server. Will automatically reset when message is sent.
+0417  00000 1     0      1    global bit   push_message_ack                 Set by push server to acknowledge push message. Used to check connection between CyBro and push server. PLC program should reset it.
+0418  00000 1     0      1    global bit   disconnect_inputs                When active, all binary inputs (including IEX modules) are disconnected, retaining the last value. Input values can be modified with online monitor.
+0430  00000 1     0      1    global bit   bc00_blinds_time_req             Set to configure blinds travel time. Will reset automatically after sending.
+0431  00000 1     0      1    global bit   bc00_blinds_stop_req             Set to configure blinds intermediate position. Will reset automatically after sending.
+0450  00000 1     0      1    global bit   bc01_blinds_time_req             Set to configure blinds travel time. Will reset automatically after sending.
+0451  00000 1     0      1    global bit   bc01_blinds_stop_req             Set to configure blinds intermediate position. Will reset automatically after sending.
+0470  00000 1     0      1    global bit   bc02_blinds_time_req             Set to configure blinds travel time. Will reset automatically after sending.
+0471  00000 1     0      1    global bit   bc02_blinds_stop_req             Set to configure blinds intermediate position. Will reset automatically after sending.
+0490  00000 1     0      1    global bit   bc03_blinds_time_req             Set to configure blinds travel time. Will reset automatically after sending.
+0491  00000 1     0      1    global bit   bc03_blinds_stop_req             Set to configure blinds intermediate position. Will reset automatically after sending.
+04B0  00000 1     0      1    global bit   bc04_blinds_time_req             Set to configure blinds travel time. Will reset automatically after sending.
+04B1  00000 1     0      1    global bit   bc04_blinds_stop_req             Set to configure blinds intermediate position. Will reset automatically after sending.
+04D0  00000 1     0      1    global bit   bc05_blinds_time_req             Set to configure blinds travel time. Will reset automatically after sending.
+04D1  00000 1     0      1    global bit   bc05_blinds_stop_req             Set to configure blinds intermediate position. Will reset automatically after sending.
+04F0  00000 1     0      1    global bit   bc06_blinds_time_req             Set to configure blinds travel time. Will reset automatically after sending.
+04F1  00000 1     0      1    global bit   bc06_blinds_stop_req             Set to configure blinds intermediate position. Will reset automatically after sending.
+0510  00000 1     0      1    global bit   bc07_blinds_time_req             Set to configure blinds travel time. Will reset automatically after sending.
+0511  00000 1     0      1    global bit   bc07_blinds_stop_req             Set to configure blinds intermediate position. Will reset automatically after sending.
+0530  00000 1     0      1    global bit   bc08_blinds_time_req             Set to configure blinds travel time. Will reset automatically after sending.
+0531  00000 1     0      1    global bit   bc08_blinds_stop_req             Set to configure blinds intermediate position. Will reset automatically after sending.
+0550  00000 1     0      1    global bit   bc09_blinds_time_req             Set to configure blinds travel time. Will reset automatically after sending.
+0551  00000 1     0      1    global bit   bc09_blinds_stop_req             Set to configure blinds intermediate position. Will reset automatically after sending.
+0800  00000 1     0      2    global int   cybro_iw00                       Internal 8-bit analog input, 0..255 is 0..20mA or 0..10V.
+0802  00000 1     0      2    global int   cybro_iw01                       Internal 8-bit analog input, 0..255 is 0..20mA or 0..10V.
+0804  00000 1     0      2    global int   cybro_iw02                       Internal 8-bit analog input, 0..255 is 0..20mA or 0..10V.
+0806  00000 1     0      2    global int   cybro_iw03                       Internal 8-bit analog input, 0..255 is 0..20mA or 0..10V.
+0820  00000 1     0      2    global int   scan_time                        Last scan execution time [ms].
+0822  00000 1     0      2    global int   scan_time_max                    Maximal scan execution time encountered since program started [ms].
+0824  00000 1     0      2    global int   scan_frequency                   Actual number of scans per second.
+0826  00000 1     0      2    global int   ee_write_magic                   Used as EEPROM write protection. Set to 31415 to enable writing. Will automatically reset when writing is finished.
+0828  00000 1     0      2    global int   socket_0_id                      Software-defined socket id of 1st socket in the list.
+082A  00000 1     0      2    global int   socket_1_id                      Software-defined socket id of 2nd socket in the list.
+082C  00000 1     0      2    global int   can_rx_msg_per_second            Number of received messages per second.
+082E  00000 1     0      2    global int   can_tx_msg_per_second            Number of transmitted messages per second.
+0830  00000 1     0      2    global int   can_rx_error_counter             Current value of receive error counter (0..255).
+0832  00000 1     0      2    global int   can_tx_error_counter             Current value of transmit error counter (0..255).
+0840  00000 1     0      2    global int   bc00_blinds_position_00          Actual blinds position, 0..100% (0-top, 100-bottom).
+0842  00000 1     0      2    global int   bc00_blinds_position_01          Actual blinds position, 0..100% (0-top, 100-bottom).
+0844  00000 1     0      2    global int   bc00_blinds_position_02          Actual blinds position, 0..100% (0-top, 100-bottom).
+0846  00000 1     0      2    global int   bc00_blinds_position_03          Actual blinds position, 0..100% (0-top, 100-bottom).
+0848  00000 1     0      2    global int   bc00_blinds_position_04          Actual blinds position, 0..100% (0-top, 100-bottom).
+0850  00000 1     0      2    global int   bc00_blinds_stop_00              Configured intermediate position, 0..100%. Zero means no intermediate position is defined.
+0852  00000 1     0      2    global int   bc00_blinds_stop_01              Configured intermediate position, 0..100%. Zero means no intermediate position is defined.
+0854  00000 1     0      2    global int   bc00_blinds_stop_02              Configured intermediate position, 0..100%. Zero means no intermediate position is defined.
+0856  00000 1     0      2    global int   bc00_blinds_stop_03              Configured intermediate position, 0..100%. Zero means no intermediate position is defined.
+0858  00000 1     0      2    global int   bc00_blinds_stop_04              Configured intermediate position, 0..100%. Zero means no intermediate position is defined.
+0860  00000 1     0      2    global int   bc00_iex_power_supply            Measured power supply voltage [*0.1V]. Measuring range is 0..40V.
+0862  00000 1     0      2    global int   bc00_bus_error_counters          Bus quality warning, indicate status of CAN error counters (0..9999, xxyy: xx-CANTEC, yy-CANREC). Non-zero value means errors are detected on CAN bus.
+0864  00000 1     0      2    global int   bc00_firmware_version            Firmware version encoded as 4-digit decimal number (major, minor, build, release).
+0866  00000 1     0      2    global int   bc00_iex_card_id                 Hardware code, used to uniquely identify connected device: 0-none, 63-BC-5.
+0868  00000 1     0      2    global int   bc00_blinds_time_up_00           Configured travel time, bottom-to-top [*0.1s].
+086A  00000 1     0      2    global int   bc00_blinds_time_dn_00           Configured travel time, top-to-bottom [*0.1s].
+086C  00000 1     0      2    global int   bc00_blinds_time_up_01           Configured travel time, bottom-to-top [*0.1s].
+086E  00000 1     0      2    global int   bc00_blinds_time_dn_01           Configured travel time, top-to-bottom [*0.1s].
+0870  00000 1     0      2    global int   bc00_blinds_time_up_02           Configured travel time, bottom-to-top [*0.1s].
+0872  00000 1     0      2    global int   bc00_blinds_time_dn_02           Configured travel time, top-to-bottom [*0.1s].
+0874  00000 1     0      2    global int   bc00_blinds_time_up_03           Configured travel time, bottom-to-top [*0.1s].
+0876  00000 1     0      2    global int   bc00_blinds_time_dn_03           Configured travel time, top-to-bottom [*0.1s].
+0878  00000 1     0      2    global int   bc00_blinds_time_up_04           Configured travel time, bottom-to-top [*0.1s].
+087A  00000 1     0      2    global int   bc00_blinds_time_dn_04           Configured travel time, top-to-bottom [*0.1s].
+0880  00000 1     0      2    global int   bc01_blinds_position_00          Actual blinds position, 0..100% (0-top, 100-bottom).
+0882  00000 1     0      2    global int   bc01_blinds_position_01          Actual blinds position, 0..100% (0-top, 100-bottom).
+0884  00000 1     0      2    global int   bc01_blinds_position_02          Actual blinds position, 0..100% (0-top, 100-bottom).
+0886  00000 1     0      2    global int   bc01_blinds_position_03          Actual blinds position, 0..100% (0-top, 100-bottom).
+0888  00000 1     0      2    global int   bc01_blinds_position_04          Actual blinds position, 0..100% (0-top, 100-bottom).
+0890  00000 1     0      2    global int   bc01_blinds_stop_00              Configured intermediate position, 0..100%. Zero means no intermediate position is defined.
+0892  00000 1     0      2    global int   bc01_blinds_stop_01              Configured intermediate position, 0..100%. Zero means no intermediate position is defined.
+0894  00000 1     0      2    global int   bc01_blinds_stop_02              Configured intermediate position, 0..100%. Zero means no intermediate position is defined.
+0896  00000 1     0      2    global int   bc01_blinds_stop_03              Configured intermediate position, 0..100%. Zero means no intermediate position is defined.
+0898  00000 1     0      2    global int   bc01_blinds_stop_04              Configured intermediate position, 0..100%. Zero means no intermediate position is defined.
+08A0  00000 1     0      2    global int   bc01_iex_power_supply            Measured power supply voltage [*0.1V]. Measuring range is 0..40V.
+08A2  00000 1     0      2    global int   bc01_bus_error_counters          Bus quality warning, indicate status of CAN error counters (0..9999, xxyy: xx-CANTEC, yy-CANREC). Non-zero value means errors are detected on CAN bus.
+08A4  00000 1     0      2    global int   bc01_firmware_version            Firmware version encoded as 4-digit decimal number (major, minor, build, release).
+08A6  00000 1     0      2    global int   bc01_iex_card_id                 Hardware code, used to uniquely identify connected device: 0-none, 63-BC-5.
+08A8  00000 1     0      2    global int   bc01_blinds_time_up_00           Configured travel time, bottom-to-top [*0.1s].
+08AA  00000 1     0      2    global int   bc01_blinds_time_dn_00           Configured travel time, top-to-bottom [*0.1s].
+08AC  00000 1     0      2    global int   bc01_blinds_time_up_01           Configured travel time, bottom-to-top [*0.1s].
+08AE  00000 1     0      2    global int   bc01_blinds_time_dn_01           Configured travel time, top-to-bottom [*0.1s].
+08B0  00000 1     0      2    global int   bc01_blinds_time_up_02           Configured travel time, bottom-to-top [*0.1s].
+08B2  00000 1     0      2    global int   bc01_blinds_time_dn_02           Configured travel time, top-to-bottom [*0.1s].
+08B4  00000 1     0      2    global int   bc01_blinds_time_up_03           Configured travel time, bottom-to-top [*0.1s].
+08B6  00000 1     0      2    global int   bc01_blinds_time_dn_03           Configured travel time, top-to-bottom [*0.1s].
+08B8  00000 1     0      2    global int   bc01_blinds_time_up_04           Configured travel time, bottom-to-top [*0.1s].
+08BA  00000 1     0      2    global int   bc01_blinds_time_dn_04           Configured travel time, top-to-bottom [*0.1s].
+08C0  00000 1     0      2    global int   bc02_blinds_position_00          Actual blinds position, 0..100% (0-top, 100-bottom).
+08C2  00000 1     0      2    global int   bc02_blinds_position_01          Actual blinds position, 0..100% (0-top, 100-bottom).
+08C4  00000 1     0      2    global int   bc02_blinds_position_02          Actual blinds position, 0..100% (0-top, 100-bottom).
+08C6  00000 1     0      2    global int   bc02_blinds_position_03          Actual blinds position, 0..100% (0-top, 100-bottom).
+08C8  00000 1     0      2    global int   bc02_blinds_position_04          Actual blinds position, 0..100% (0-top, 100-bottom).
+08D0  00000 1     0      2    global int   bc02_blinds_stop_00              Configured intermediate position, 0..100%. Zero means no intermediate position is defined.
+08D2  00000 1     0      2    global int   bc02_blinds_stop_01              Configured intermediate position, 0..100%. Zero means no intermediate position is defined.
+08D4  00000 1     0      2    global int   bc02_blinds_stop_02              Configured intermediate position, 0..100%. Zero means no intermediate position is defined.
+08D6  00000 1     0      2    global int   bc02_blinds_stop_03              Configured intermediate position, 0..100%. Zero means no intermediate position is defined.
+08D8  00000 1     0      2    global int   bc02_blinds_stop_04              Configured intermediate position, 0..100%. Zero means no intermediate position is defined.
+08E0  00000 1     0      2    global int   bc02_iex_power_supply            Measured power supply voltage [*0.1V]. Measuring range is 0..40V.
+08E2  00000 1     0      2    global int   bc02_bus_error_counters          Bus quality warning, indicate status of CAN error counters (0..9999, xxyy: xx-CANTEC, yy-CANREC). Non-zero value means errors are detected on CAN bus.
+08E4  00000 1     0      2    global int   bc02_firmware_version            Firmware version encoded as 4-digit decimal number (major, minor, build, release).
+08E6  00000 1     0      2    global int   bc02_iex_card_id                 Hardware code, used to uniquely identify connected device: 0-none, 63-BC-5.
+08E8  00000 1     0      2    global int   bc02_blinds_time_up_00           Configured travel time, bottom-to-top [*0.1s].
+08EA  00000 1     0      2    global int   bc02_blinds_time_dn_00           Configured travel time, top-to-bottom [*0.1s].
+08EC  00000 1     0      2    global int   bc02_blinds_time_up_01           Configured travel time, bottom-to-top [*0.1s].
+08EE  00000 1     0      2    global int   bc02_blinds_time_dn_01           Configured travel time, top-to-bottom [*0.1s].
+08F0  00000 1     0      2    global int   bc02_blinds_time_up_02           Configured travel time, bottom-to-top [*0.1s].
+08F2  00000 1     0      2    global int   bc02_blinds_time_dn_02           Configured travel time, top-to-bottom [*0.1s].
+08F4  00000 1     0      2    global int   bc02_blinds_time_up_03           Configured travel time, bottom-to-top [*0.1s].
+08F6  00000 1     0      2    global int   bc02_blinds_time_dn_03           Configured travel time, top-to-bottom [*0.1s].
+08F8  00000 1     0      2    global int   bc02_blinds_time_up_04           Configured travel time, bottom-to-top [*0.1s].
+08FA  00000 1     0      2    global int   bc02_blinds_time_dn_04           Configured travel time, top-to-bottom [*0.1s].
+0900  00000 1     0      2    global int   bc03_blinds_position_00          Actual blinds position, 0..100% (0-top, 100-bottom).
+0902  00000 1     0      2    global int   bc03_blinds_position_01          Actual blinds position, 0..100% (0-top, 100-bottom).
+0904  00000 1     0      2    global int   bc03_blinds_position_02          Actual blinds position, 0..100% (0-top, 100-bottom).
+0906  00000 1     0      2    global int   bc03_blinds_position_03          Actual blinds position, 0..100% (0-top, 100-bottom).
+0908  00000 1     0      2    global int   bc03_blinds_position_04          Actual blinds position, 0..100% (0-top, 100-bottom).
+0910  00000 1     0      2    global int   bc03_blinds_stop_00              Configured intermediate position, 0..100%. Zero means no intermediate position is defined.
+0912  00000 1     0      2    global int   bc03_blinds_stop_01              Configured intermediate position, 0..100%. Zero means no intermediate position is defined.
+0914  00000 1     0      2    global int   bc03_blinds_stop_02              Configured intermediate position, 0..100%. Zero means no intermediate position is defined.
+0916  00000 1     0      2    global int   bc03_blinds_stop_03              Configured intermediate position, 0..100%. Zero means no intermediate position is defined.
+0918  00000 1     0      2    global int   bc03_blinds_stop_04              Configured intermediate position, 0..100%. Zero means no intermediate position is defined.
+0920  00000 1     0      2    global int   bc03_iex_power_supply            Measured power supply voltage [*0.1V]. Measuring range is 0..40V.
+0922  00000 1     0      2    global int   bc03_bus_error_counters          Bus quality warning, indicate status of CAN error counters (0..9999, xxyy: xx-CANTEC, yy-CANREC). Non-zero value means errors are detected on CAN bus.
+0924  00000 1     0      2    global int   bc03_firmware_version            Firmware version encoded as 4-digit decimal number (major, minor, build, release).
+0926  00000 1     0      2    global int   bc03_iex_card_id                 Hardware code, used to uniquely identify connected device: 0-none, 63-BC-5.
+0928  00000 1     0      2    global int   bc03_blinds_time_up_00           Configured travel time, bottom-to-top [*0.1s].
+092A  00000 1     0      2    global int   bc03_blinds_time_dn_00           Configured travel time, top-to-bottom [*0.1s].
+092C  00000 1     0      2    global int   bc03_blinds_time_up_01           Configured travel time, bottom-to-top [*0.1s].
+092E  00000 1     0      2    global int   bc03_blinds_time_dn_01           Configured travel time, top-to-bottom [*0.1s].
+0930  00000 1     0      2    global int   bc03_blinds_time_up_02           Configured travel time, bottom-to-top [*0.1s].
+0932  00000 1     0      2    global int   bc03_blinds_time_dn_02           Configured travel time, top-to-bottom [*0.1s].
+0934  00000 1     0      2    global int   bc03_blinds_time_up_03           Configured travel time, bottom-to-top [*0.1s].
+0936  00000 1     0      2    global int   bc03_blinds_time_dn_03           Configured travel time, top-to-bottom [*0.1s].
+0938  00000 1     0      2    global int   bc03_blinds_time_up_04           Configured travel time, bottom-to-top [*0.1s].
+093A  00000 1     0      2    global int   bc03_blinds_time_dn_04           Configured travel time, top-to-bottom [*0.1s].
+0940  00000 1     0      2    global int   bc04_blinds_position_00          Actual blinds position, 0..100% (0-top, 100-bottom).
+0942  00000 1     0      2    global int   bc04_blinds_position_01          Actual blinds position, 0..100% (0-top, 100-bottom).
+0944  00000 1     0      2    global int   bc04_blinds_position_02          Actual blinds position, 0..100% (0-top, 100-bottom).
+0946  00000 1     0      2    global int   bc04_blinds_position_03          Actual blinds position, 0..100% (0-top, 100-bottom).
+0948  00000 1     0      2    global int   bc04_blinds_position_04          Actual blinds position, 0..100% (0-top, 100-bottom).
+0950  00000 1     0      2    global int   bc04_blinds_stop_00              Configured intermediate position, 0..100%. Zero means no intermediate position is defined.
+0952  00000 1     0      2    global int   bc04_blinds_stop_01              Configured intermediate position, 0..100%. Zero means no intermediate position is defined.
+0954  00000 1     0      2    global int   bc04_blinds_stop_02              Configured intermediate position, 0..100%. Zero means no intermediate position is defined.
+0956  00000 1     0      2    global int   bc04_blinds_stop_03              Configured intermediate position, 0..100%. Zero means no intermediate position is defined.
+0958  00000 1     0      2    global int   bc04_blinds_stop_04              Configured intermediate position, 0..100%. Zero means no intermediate position is defined.
+0960  00000 1     0      2    global int   bc04_iex_power_supply            Measured power supply voltage [*0.1V]. Measuring range is 0..40V.
+0962  00000 1     0      2    global int   bc04_bus_error_counters          Bus quality warning, indicate status of CAN error counters (0..9999, xxyy: xx-CANTEC, yy-CANREC). Non-zero value means errors are detected on CAN bus.
+0964  00000 1     0      2    global int   bc04_firmware_version            Firmware version encoded as 4-digit decimal number (major, minor, build, release).
+0966  00000 1     0      2    global int   bc04_iex_card_id                 Hardware code, used to uniquely identify connected device: 0-none, 63-BC-5.
+0968  00000 1     0      2    global int   bc04_blinds_time_up_00           Configured travel time, bottom-to-top [*0.1s].
+096A  00000 1     0      2    global int   bc04_blinds_time_dn_00           Configured travel time, top-to-bottom [*0.1s].
+096C  00000 1     0      2    global int   bc04_blinds_time_up_01           Configured travel time, bottom-to-top [*0.1s].
+096E  00000 1     0      2    global int   bc04_blinds_time_dn_01           Configured travel time, top-to-bottom [*0.1s].
+0970  00000 1     0      2    global int   bc04_blinds_time_up_02           Configured travel time, bottom-to-top [*0.1s].
+0972  00000 1     0      2    global int   bc04_blinds_time_dn_02           Configured travel time, top-to-bottom [*0.1s].
+0974  00000 1     0      2    global int   bc04_blinds_time_up_03           Configured travel time, bottom-to-top [*0.1s].
+0976  00000 1     0      2    global int   bc04_blinds_time_dn_03           Configured travel time, top-to-bottom [*0.1s].
+0978  00000 1     0      2    global int   bc04_blinds_time_up_04           Configured travel time, bottom-to-top [*0.1s].
+097A  00000 1     0      2    global int   bc04_blinds_time_dn_04           Configured travel time, top-to-bottom [*0.1s].
+0980  00000 1     0      2    global int   bc05_blinds_position_00          Actual blinds position, 0..100% (0-top, 100-bottom).
+0982  00000 1     0      2    global int   bc05_blinds_position_01          Actual blinds position, 0..100% (0-top, 100-bottom).
+0984  00000 1     0      2    global int   bc05_blinds_position_02          Actual blinds position, 0..100% (0-top, 100-bottom).
+0986  00000 1     0      2    global int   bc05_blinds_position_03          Actual blinds position, 0..100% (0-top, 100-bottom).
+0988  00000 1     0      2    global int   bc05_blinds_position_04          Actual blinds position, 0..100% (0-top, 100-bottom).
+0990  00000 1     0      2    global int   bc05_blinds_stop_00              Configured intermediate position, 0..100%. Zero means no intermediate position is defined.
+0992  00000 1     0      2    global int   bc05_blinds_stop_01              Configured intermediate position, 0..100%. Zero means no intermediate position is defined.
+0994  00000 1     0      2    global int   bc05_blinds_stop_02              Configured intermediate position, 0..100%. Zero means no intermediate position is defined.
+0996  00000 1     0      2    global int   bc05_blinds_stop_03              Configured intermediate position, 0..100%. Zero means no intermediate position is defined.
+0998  00000 1     0      2    global int   bc05_blinds_stop_04              Configured intermediate position, 0..100%. Zero means no intermediate position is defined.
+09A0  00000 1     0      2    global int   bc05_iex_power_supply            Measured power supply voltage [*0.1V]. Measuring range is 0..40V.
+09A2  00000 1     0      2    global int   bc05_bus_error_counters          Bus quality warning, indicate status of CAN error counters (0..9999, xxyy: xx-CANTEC, yy-CANREC). Non-zero value means errors are detected on CAN bus.
+09A4  00000 1     0      2    global int   bc05_firmware_version            Firmware version encoded as 4-digit decimal number (major, minor, build, release).
+09A6  00000 1     0      2    global int   bc05_iex_card_id                 Hardware code, used to uniquely identify connected device: 0-none, 63-BC-5.
+09A8  00000 1     0      2    global int   bc05_blinds_time_up_00           Configured travel time, bottom-to-top [*0.1s].
+09AA  00000 1     0      2    global int   bc05_blinds_time_dn_00           Configured travel time, top-to-bottom [*0.1s].
+09AC  00000 1     0      2    global int   bc05_blinds_time_up_01           Configured travel time, bottom-to-top [*0.1s].
+09AE  00000 1     0      2    global int   bc05_blinds_time_dn_01           Configured travel time, top-to-bottom [*0.1s].
+09B0  00000 1     0      2    global int   bc05_blinds_time_up_02           Configured travel time, bottom-to-top [*0.1s].
+09B2  00000 1     0      2    global int   bc05_blinds_time_dn_02           Configured travel time, top-to-bottom [*0.1s].
+09B4  00000 1     0      2    global int   bc05_blinds_time_up_03           Configured travel time, bottom-to-top [*0.1s].
+09B6  00000 1     0      2    global int   bc05_blinds_time_dn_03           Configured travel time, top-to-bottom [*0.1s].
+09B8  00000 1     0      2    global int   bc05_blinds_time_up_04           Configured travel time, bottom-to-top [*0.1s].
+09BA  00000 1     0      2    global int   bc05_blinds_time_dn_04           Configured travel time, top-to-bottom [*0.1s].
+09C0  00000 1     0      2    global int   bc06_blinds_position_00          Actual blinds position, 0..100% (0-top, 100-bottom).
+09C2  00000 1     0      2    global int   bc06_blinds_position_01          Actual blinds position, 0..100% (0-top, 100-bottom).
+09C4  00000 1     0      2    global int   bc06_blinds_position_02          Actual blinds position, 0..100% (0-top, 100-bottom).
+09C6  00000 1     0      2    global int   bc06_blinds_position_03          Actual blinds position, 0..100% (0-top, 100-bottom).
+09C8  00000 1     0      2    global int   bc06_blinds_position_04          Actual blinds position, 0..100% (0-top, 100-bottom).
+09D0  00000 1     0      2    global int   bc06_blinds_stop_00              Configured intermediate position, 0..100%. Zero means no intermediate position is defined.
+09D2  00000 1     0      2    global int   bc06_blinds_stop_01              Configured intermediate position, 0..100%. Zero means no intermediate position is defined.
+09D4  00000 1     0      2    global int   bc06_blinds_stop_02              Configured intermediate position, 0..100%. Zero means no intermediate position is defined.
+09D6  00000 1     0      2    global int   bc06_blinds_stop_03              Configured intermediate position, 0..100%. Zero means no intermediate position is defined.
+09D8  00000 1     0      2    global int   bc06_blinds_stop_04              Configured intermediate position, 0..100%. Zero means no intermediate position is defined.
+09E0  00000 1     0      2    global int   bc06_iex_power_supply            Measured power supply voltage [*0.1V]. Measuring range is 0..40V.
+09E2  00000 1     0      2    global int   bc06_bus_error_counters          Bus quality warning, indicate status of CAN error counters (0..9999, xxyy: xx-CANTEC, yy-CANREC). Non-zero value means errors are detected on CAN bus.
+09E4  00000 1     0      2    global int   bc06_firmware_version            Firmware version encoded as 4-digit decimal number (major, minor, build, release).
+09E6  00000 1     0      2    global int   bc06_iex_card_id                 Hardware code, used to uniquely identify connected device: 0-none, 63-BC-5.
+09E8  00000 1     0      2    global int   bc06_blinds_time_up_00           Configured travel time, bottom-to-top [*0.1s].
+09EA  00000 1     0      2    global int   bc06_blinds_time_dn_00           Configured travel time, top-to-bottom [*0.1s].
+09EC  00000 1     0      2    global int   bc06_blinds_time_up_01           Configured travel time, bottom-to-top [*0.1s].
+09EE  00000 1     0      2    global int   bc06_blinds_time_dn_01           Configured travel time, top-to-bottom [*0.1s].
+09F0  00000 1     0      2    global int   bc06_blinds_time_up_02           Configured travel time, bottom-to-top [*0.1s].
+09F2  00000 1     0      2    global int   bc06_blinds_time_dn_02           Configured travel time, top-to-bottom [*0.1s].
+09F4  00000 1     0      2    global int   bc06_blinds_time_up_03           Configured travel time, bottom-to-top [*0.1s].
+09F6  00000 1     0      2    global int   bc06_blinds_time_dn_03           Configured travel time, top-to-bottom [*0.1s].
+09F8  00000 1     0      2    global int   bc06_blinds_time_up_04           Configured travel time, bottom-to-top [*0.1s].
+09FA  00000 1     0      2    global int   bc06_blinds_time_dn_04           Configured travel time, top-to-bottom [*0.1s].
+0A00  00000 1     0      2    global int   bc07_blinds_position_00          Actual blinds position, 0..100% (0-top, 100-bottom).
+0A02  00000 1     0      2    global int   bc07_blinds_position_01          Actual blinds position, 0..100% (0-top, 100-bottom).
+0A04  00000 1     0      2    global int   bc07_blinds_position_02          Actual blinds position, 0..100% (0-top, 100-bottom).
+0A06  00000 1     0      2    global int   bc07_blinds_position_03          Actual blinds position, 0..100% (0-top, 100-bottom).
+0A08  00000 1     0      2    global int   bc07_blinds_position_04          Actual blinds position, 0..100% (0-top, 100-bottom).
+0A10  00000 1     0      2    global int   bc07_blinds_stop_00              Configured intermediate position, 0..100%. Zero means no intermediate position is defined.
+0A12  00000 1     0      2    global int   bc07_blinds_stop_01              Configured intermediate position, 0..100%. Zero means no intermediate position is defined.
+0A14  00000 1     0      2    global int   bc07_blinds_stop_02              Configured intermediate position, 0..100%. Zero means no intermediate position is defined.
+0A16  00000 1     0      2    global int   bc07_blinds_stop_03              Configured intermediate position, 0..100%. Zero means no intermediate position is defined.
+0A18  00000 1     0      2    global int   bc07_blinds_stop_04              Configured intermediate position, 0..100%. Zero means no intermediate position is defined.
+0A20  00000 1     0      2    global int   bc07_iex_power_supply            Measured power supply voltage [*0.1V]. Measuring range is 0..40V.
+0A22  00000 1     0      2    global int   bc07_bus_error_counters          Bus quality warning, indicate status of CAN error counters (0..9999, xxyy: xx-CANTEC, yy-CANREC). Non-zero value means errors are detected on CAN bus.
+0A24  00000 1     0      2    global int   bc07_firmware_version            Firmware version encoded as 4-digit decimal number (major, minor, build, release).
+0A26  00000 1     0      2    global int   bc07_iex_card_id                 Hardware code, used to uniquely identify connected device: 0-none, 63-BC-5.
+0A28  00000 1     0      2    global int   bc07_blinds_time_up_00           Configured travel time, bottom-to-top [*0.1s].
+0A2A  00000 1     0      2    global int   bc07_blinds_time_dn_00           Configured travel time, top-to-bottom [*0.1s].
+0A2C  00000 1     0      2    global int   bc07_blinds_time_up_01           Configured travel time, bottom-to-top [*0.1s].
+0A2E  00000 1     0      2    global int   bc07_blinds_time_dn_01           Configured travel time, top-to-bottom [*0.1s].
+0A30  00000 1     0      2    global int   bc07_blinds_time_up_02           Configured travel time, bottom-to-top [*0.1s].
+0A32  00000 1     0      2    global int   bc07_blinds_time_dn_02           Configured travel time, top-to-bottom [*0.1s].
+0A34  00000 1     0      2    global int   bc07_blinds_time_up_03           Configured travel time, bottom-to-top [*0.1s].
+0A36  00000 1     0      2    global int   bc07_blinds_time_dn_03           Configured travel time, top-to-bottom [*0.1s].
+0A38  00000 1     0      2    global int   bc07_blinds_time_up_04           Configured travel time, bottom-to-top [*0.1s].
+0A3A  00000 1     0      2    global int   bc07_blinds_time_dn_04           Configured travel time, top-to-bottom [*0.1s].
+0A40  00000 1     0      2    global int   bc08_blinds_position_00          Actual blinds position, 0..100% (0-top, 100-bottom).
+0A42  00000 1     0      2    global int   bc08_blinds_position_01          Actual blinds position, 0..100% (0-top, 100-bottom).
+0A44  00000 1     0      2    global int   bc08_blinds_position_02          Actual blinds position, 0..100% (0-top, 100-bottom).
+0A46  00000 1     0      2    global int   bc08_blinds_position_03          Actual blinds position, 0..100% (0-top, 100-bottom).
+0A48  00000 1     0      2    global int   bc08_blinds_position_04          Actual blinds position, 0..100% (0-top, 100-bottom).
+0A50  00000 1     0      2    global int   bc08_blinds_stop_00              Configured intermediate position, 0..100%. Zero means no intermediate position is defined.
+0A52  00000 1     0      2    global int   bc08_blinds_stop_01              Configured intermediate position, 0..100%. Zero means no intermediate position is defined.
+0A54  00000 1     0      2    global int   bc08_blinds_stop_02              Configured intermediate position, 0..100%. Zero means no intermediate position is defined.
+0A56  00000 1     0      2    global int   bc08_blinds_stop_03              Configured intermediate position, 0..100%. Zero means no intermediate position is defined.
+0A58  00000 1     0      2    global int   bc08_blinds_stop_04              Configured intermediate position, 0..100%. Zero means no intermediate position is defined.
+0A60  00000 1     0      2    global int   bc08_iex_power_supply            Measured power supply voltage [*0.1V]. Measuring range is 0..40V.
+0A62  00000 1     0      2    global int   bc08_bus_error_counters          Bus quality warning, indicate status of CAN error counters (0..9999, xxyy: xx-CANTEC, yy-CANREC). Non-zero value means errors are detected on CAN bus.
+0A64  00000 1     0      2    global int   bc08_firmware_version            Firmware version encoded as 4-digit decimal number (major, minor, build, release).
+0A66  00000 1     0      2    global int   bc08_iex_card_id                 Hardware code, used to uniquely identify connected device: 0-none, 63-BC-5.
+0A68  00000 1     0      2    global int   bc08_blinds_time_up_00           Configured travel time, bottom-to-top [*0.1s].
+0A6A  00000 1     0      2    global int   bc08_blinds_time_dn_00           Configured travel time, top-to-bottom [*0.1s].
+0A6C  00000 1     0      2    global int   bc08_blinds_time_up_01           Configured travel time, bottom-to-top [*0.1s].
+0A6E  00000 1     0      2    global int   bc08_blinds_time_dn_01           Configured travel time, top-to-bottom [*0.1s].
+0A70  00000 1     0      2    global int   bc08_blinds_time_up_02           Configured travel time, bottom-to-top [*0.1s].
+0A72  00000 1     0      2    global int   bc08_blinds_time_dn_02           Configured travel time, top-to-bottom [*0.1s].
+0A74  00000 1     0      2    global int   bc08_blinds_time_up_03           Configured travel time, bottom-to-top [*0.1s].
+0A76  00000 1     0      2    global int   bc08_blinds_time_dn_03           Configured travel time, top-to-bottom [*0.1s].
+0A78  00000 1     0      2    global int   bc08_blinds_time_up_04           Configured travel time, bottom-to-top [*0.1s].
+0A7A  00000 1     0      2    global int   bc08_blinds_time_dn_04           Configured travel time, top-to-bottom [*0.1s].
+0A80  00000 1     0      2    global int   bc09_blinds_position_00          Actual blinds position, 0..100% (0-top, 100-bottom).
+0A82  00000 1     0      2    global int   bc09_blinds_position_01          Actual blinds position, 0..100% (0-top, 100-bottom).
+0A84  00000 1     0      2    global int   bc09_blinds_position_02          Actual blinds position, 0..100% (0-top, 100-bottom).
+0A86  00000 1     0      2    global int   bc09_blinds_position_03          Actual blinds position, 0..100% (0-top, 100-bottom).
+0A88  00000 1     0      2    global int   bc09_blinds_position_04          Actual blinds position, 0..100% (0-top, 100-bottom).
+0A90  00000 1     0      2    global int   bc09_blinds_stop_00              Configured intermediate position, 0..100%. Zero means no intermediate position is defined.
+0A92  00000 1     0      2    global int   bc09_blinds_stop_01              Configured intermediate position, 0..100%. Zero means no intermediate position is defined.
+0A94  00000 1     0      2    global int   bc09_blinds_stop_02              Configured intermediate position, 0..100%. Zero means no intermediate position is defined.
+0A96  00000 1     0      2    global int   bc09_blinds_stop_03              Configured intermediate position, 0..100%. Zero means no intermediate position is defined.
+0A98  00000 1     0      2    global int   bc09_blinds_stop_04              Configured intermediate position, 0..100%. Zero means no intermediate position is defined.
+0AA0  00000 1     0      2    global int   bc09_iex_power_supply            Measured power supply voltage [*0.1V]. Measuring range is 0..40V.
+0AA2  00000 1     0      2    global int   bc09_bus_error_counters          Bus quality warning, indicate status of CAN error counters (0..9999, xxyy: xx-CANTEC, yy-CANREC). Non-zero value means errors are detected on CAN bus.
+0AA4  00000 1     0      2    global int   bc09_firmware_version            Firmware version encoded as 4-digit decimal number (major, minor, build, release).
+0AA6  00000 1     0      2    global int   bc09_iex_card_id                 Hardware code, used to uniquely identify connected device: 0-none, 63-BC-5.
+0AA8  00000 1     0      2    global int   bc09_blinds_time_up_00           Configured travel time, bottom-to-top [*0.1s].
+0AAA  00000 1     0      2    global int   bc09_blinds_time_dn_00           Configured travel time, top-to-bottom [*0.1s].
+0AAC  00000 1     0      2    global int   bc09_blinds_time_up_01           Configured travel time, bottom-to-top [*0.1s].
+0AAE  00000 1     0      2    global int   bc09_blinds_time_dn_01           Configured travel time, top-to-bottom [*0.1s].
+0AB0  00000 1     0      2    global int   bc09_blinds_time_up_02           Configured travel time, bottom-to-top [*0.1s].
+0AB2  00000 1     0      2    global int   bc09_blinds_time_dn_02           Configured travel time, top-to-bottom [*0.1s].
+0AB4  00000 1     0      2    global int   bc09_blinds_time_up_03           Configured travel time, bottom-to-top [*0.1s].
+0AB6  00000 1     0      2    global int   bc09_blinds_time_dn_03           Configured travel time, top-to-bottom [*0.1s].
+0AB8  00000 1     0      2    global int   bc09_blinds_time_up_04           Configured travel time, bottom-to-top [*0.1s].
+0ABA  00000 1     0      2    global int   bc09_blinds_time_dn_04           Configured travel time, top-to-bottom [*0.1s].
+1000  00000 1     0      2    global int   cybro_qw00                       Internal 8-bit analog output, 0..255 is 0..10V.
+1020  00000 1     0      2    global int   rtc_sec                          Seconds of internal real-time clock (0..59).
+1022  00000 1     0      2    global int   rtc_min                          Minutes of internal real-time clock (0..59).
+1024  00000 1     0      2    global int   rtc_hour                         Hours of internal real-time clock (0..59).
+1026  00000 1     0      2    global int   rtc_weekday                      Weekday of internal real-time clock (0-Sunday, 1-Monday, 2-Tuesday, 3-Wednesday, 4-Thursday, 5-Friday, 6-Saturday).
+1028  00000 1     0      2    global int   rtc_date                         Date of internal real-time clock (1..31).
+102A  00000 1     0      2    global int   rtc_month                        Month of internal real-time clock (1..12).
+102C  00000 1     0      2    global int   rtc_year                         Year of internal real-time clock (2000..2099).
+1040  00000 1     0      2    global int   bc00_blinds_setpoint_00          Requested blinds position, 0..100% (0-top, 100-bottom, -1-stop at actual position, -2-move up/down/stop with intermediate position).
+1042  00000 1     0      2    global int   bc00_blinds_setpoint_01          Requested blinds position, 0..100% (0-top, 100-bottom, -1-stop at actual position, -2-move up/down/stop with intermediate position).
+1044  00000 1     0      2    global int   bc00_blinds_setpoint_02          Requested blinds position, 0..100% (0-top, 100-bottom, -1-stop at actual position, -2-move up/down/stop with intermediate position).
+1046  00000 1     0      2    global int   bc00_blinds_setpoint_03          Requested blinds position, 0..100% (0-top, 100-bottom, -1-stop at actual position, -2-move up/down/stop with intermediate position).
+1048  00000 1     0      2    global int   bc00_blinds_setpoint_04          Requested blinds position, 0..100% (0-top, 100-bottom, -1-stop at actual position, -2-move up/down/stop with intermediate position).
+1060  00000 1     0      2    global int   bc00_blinds_time_index           Blinds channel for travel time to be written, 0..4 for up and 5..9 for down. Set to -1 to write all channels at once, both up and down times.
+1062  00000 1     0      2    global int   bc00_blinds_time_data            Configuration setting, travel time up or down [*0.1s]. Range is 0.1..300s. To configure travel time, set blinds_time_data and blinds_time_index, then set blinds_time_req.
+1068  00000 1     0      2    global int   bc00_blinds_stop_index           Blinds channel for intermediate position to be written, 0..4. Set to -1 to write all channels at once.
+106A  00000 1     0      2    global int   bc00_blinds_stop_data            Configuration setting, intermediate position in percents (0..100%). To disable intermediate position, set to zero. To configure intermediate position, set blinds_stop_data and blinds_stop_index, then set blinds_stop_req.
+1080  00000 1     0      2    global int   bc01_blinds_setpoint_00          Requested blinds position, 0..100% (0-top, 100-bottom, -1-stop at actual position, -2-move up/down/stop with intermediate position).
+1082  00000 1     0      2    global int   bc01_blinds_setpoint_01          Requested blinds position, 0..100% (0-top, 100-bottom, -1-stop at actual position, -2-move up/down/stop with intermediate position).
+1084  00000 1     0      2    global int   bc01_blinds_setpoint_02          Requested blinds position, 0..100% (0-top, 100-bottom, -1-stop at actual position, -2-move up/down/stop with intermediate position).
+1086  00000 1     0      2    global int   bc01_blinds_setpoint_03          Requested blinds position, 0..100% (0-top, 100-bottom, -1-stop at actual position, -2-move up/down/stop with intermediate position).
+1088  00000 1     0      2    global int   bc01_blinds_setpoint_04          Requested blinds position, 0..100% (0-top, 100-bottom, -1-stop at actual position, -2-move up/down/stop with intermediate position).
+10A0  00000 1     0      2    global int   bc01_blinds_time_index           Blinds channel for travel time to be written, 0..4 for up and 5..9 for down. Set to -1 to write all channels at once, both up and down times.
+10A2  00000 1     0      2    global int   bc01_blinds_time_data            Configuration setting, travel time up or down [*0.1s]. Range is 0.1..300s. To configure travel time, set blinds_time_data and blinds_time_index, then set blinds_time_req.
+10A8  00000 1     0      2    global int   bc01_blinds_stop_index           Blinds channel for intermediate position to be written, 0..4. Set to -1 to write all channels at once.
+10AA  00000 1     0      2    global int   bc01_blinds_stop_data            Configuration setting, intermediate position in percents (0..100%). To disable intermediate position, set to zero. To configure intermediate position, set blinds_stop_data and blinds_stop_index, then set blinds_stop_req.
+10C0  00000 1     0      2    global int   bc02_blinds_setpoint_00          Requested blinds position, 0..100% (0-top, 100-bottom, -1-stop at actual position, -2-move up/down/stop with intermediate position).
+10C2  00000 1     0      2    global int   bc02_blinds_setpoint_01          Requested blinds position, 0..100% (0-top, 100-bottom, -1-stop at actual position, -2-move up/down/stop with intermediate position).
+10C4  00000 1     0      2    global int   bc02_blinds_setpoint_02          Requested blinds position, 0..100% (0-top, 100-bottom, -1-stop at actual position, -2-move up/down/stop with intermediate position).
+10C6  00000 1     0      2    global int   bc02_blinds_setpoint_03          Requested blinds position, 0..100% (0-top, 100-bottom, -1-stop at actual position, -2-move up/down/stop with intermediate position).
+10C8  00000 1     0      2    global int   bc02_blinds_setpoint_04          Requested blinds position, 0..100% (0-top, 100-bottom, -1-stop at actual position, -2-move up/down/stop with intermediate position).
+10E0  00000 1     0      2    global int   bc02_blinds_time_index           Blinds channel for travel time to be written, 0..4 for up and 5..9 for down. Set to -1 to write all channels at once, both up and down times.
+10E2  00000 1     0      2    global int   bc02_blinds_time_data            Configuration setting, travel time up or down [*0.1s]. Range is 0.1..300s. To configure travel time, set blinds_time_data and blinds_time_index, then set blinds_time_req.
+10E8  00000 1     0      2    global int   bc02_blinds_stop_index           Blinds channel for intermediate position to be written, 0..4. Set to -1 to write all channels at once.
+10EA  00000 1     0      2    global int   bc02_blinds_stop_data            Configuration setting, intermediate position in percents (0..100%). To disable intermediate position, set to zero. To configure intermediate position, set blinds_stop_data and blinds_stop_index, then set blinds_stop_req.
+1100  00000 1     0      2    global int   bc03_blinds_setpoint_00          Requested blinds position, 0..100% (0-top, 100-bottom, -1-stop at actual position, -2-move up/down/stop with intermediate position).
+1102  00000 1     0      2    global int   bc03_blinds_setpoint_01          Requested blinds position, 0..100% (0-top, 100-bottom, -1-stop at actual position, -2-move up/down/stop with intermediate position).
+1104  00000 1     0      2    global int   bc03_blinds_setpoint_02          Requested blinds position, 0..100% (0-top, 100-bottom, -1-stop at actual position, -2-move up/down/stop with intermediate position).
+1106  00000 1     0      2    global int   bc03_blinds_setpoint_03          Requested blinds position, 0..100% (0-top, 100-bottom, -1-stop at actual position, -2-move up/down/stop with intermediate position).
+1108  00000 1     0      2    global int   bc03_blinds_setpoint_04          Requested blinds position, 0..100% (0-top, 100-bottom, -1-stop at actual position, -2-move up/down/stop with intermediate position).
+1120  00000 1     0      2    global int   bc03_blinds_time_index           Blinds channel for travel time to be written, 0..4 for up and 5..9 for down. Set to -1 to write all channels at once, both up and down times.
+1122  00000 1     0      2    global int   bc03_blinds_time_data            Configuration setting, travel time up or down [*0.1s]. Range is 0.1..300s. To configure travel time, set blinds_time_data and blinds_time_index, then set blinds_time_req.
+1128  00000 1     0      2    global int   bc03_blinds_stop_index           Blinds channel for intermediate position to be written, 0..4. Set to -1 to write all channels at once.
+112A  00000 1     0      2    global int   bc03_blinds_stop_data            Configuration setting, intermediate position in percents (0..100%). To disable intermediate position, set to zero. To configure intermediate position, set blinds_stop_data and blinds_stop_index, then set blinds_stop_req.
+1140  00000 1     0      2    global int   bc04_blinds_setpoint_00          Requested blinds position, 0..100% (0-top, 100-bottom, -1-stop at actual position, -2-move up/down/stop with intermediate position).
+1142  00000 1     0      2    global int   bc04_blinds_setpoint_01          Requested blinds position, 0..100% (0-top, 100-bottom, -1-stop at actual position, -2-move up/down/stop with intermediate position).
+1144  00000 1     0      2    global int   bc04_blinds_setpoint_02          Requested blinds position, 0..100% (0-top, 100-bottom, -1-stop at actual position, -2-move up/down/stop with intermediate position).
+1146  00000 1     0      2    global int   bc04_blinds_setpoint_03          Requested blinds position, 0..100% (0-top, 100-bottom, -1-stop at actual position, -2-move up/down/stop with intermediate position).
+1148  00000 1     0      2    global int   bc04_blinds_setpoint_04          Requested blinds position, 0..100% (0-top, 100-bottom, -1-stop at actual position, -2-move up/down/stop with intermediate position).
+1160  00000 1     0      2    global int   bc04_blinds_time_index           Blinds channel for travel time to be written, 0..4 for up and 5..9 for down. Set to -1 to write all channels at once, both up and down times.
+1162  00000 1     0      2    global int   bc04_blinds_time_data            Configuration setting, travel time up or down [*0.1s]. Range is 0.1..300s. To configure travel time, set blinds_time_data and blinds_time_index, then set blinds_time_req.
+1168  00000 1     0      2    global int   bc04_blinds_stop_index           Blinds channel for intermediate position to be written, 0..4. Set to -1 to write all channels at once.
+116A  00000 1     0      2    global int   bc04_blinds_stop_data            Configuration setting, intermediate position in percents (0..100%). To disable intermediate position, set to zero. To configure intermediate position, set blinds_stop_data and blinds_stop_index, then set blinds_stop_req.
+1180  00000 1     0      2    global int   bc05_blinds_setpoint_00          Requested blinds position, 0..100% (0-top, 100-bottom, -1-stop at actual position, -2-move up/down/stop with intermediate position).
+1182  00000 1     0      2    global int   bc05_blinds_setpoint_01          Requested blinds position, 0..100% (0-top, 100-bottom, -1-stop at actual position, -2-move up/down/stop with intermediate position).
+1184  00000 1     0      2    global int   bc05_blinds_setpoint_02          Requested blinds position, 0..100% (0-top, 100-bottom, -1-stop at actual position, -2-move up/down/stop with intermediate position).
+1186  00000 1     0      2    global int   bc05_blinds_setpoint_03          Requested blinds position, 0..100% (0-top, 100-bottom, -1-stop at actual position, -2-move up/down/stop with intermediate position).
+1188  00000 1     0      2    global int   bc05_blinds_setpoint_04          Requested blinds position, 0..100% (0-top, 100-bottom, -1-stop at actual position, -2-move up/down/stop with intermediate position).
+11A0  00000 1     0      2    global int   bc05_blinds_time_index           Blinds channel for travel time to be written, 0..4 for up and 5..9 for down. Set to -1 to write all channels at once, both up and down times.
+11A2  00000 1     0      2    global int   bc05_blinds_time_data            Configuration setting, travel time up or down [*0.1s]. Range is 0.1..300s. To configure travel time, set blinds_time_data and blinds_time_index, then set blinds_time_req.
+11A8  00000 1     0      2    global int   bc05_blinds_stop_index           Blinds channel for intermediate position to be written, 0..4. Set to -1 to write all channels at once.
+11AA  00000 1     0      2    global int   bc05_blinds_stop_data            Configuration setting, intermediate position in percents (0..100%). To disable intermediate position, set to zero. To configure intermediate position, set blinds_stop_data and blinds_stop_index, then set blinds_stop_req.
+11C0  00000 1     0      2    global int   bc06_blinds_setpoint_00          Requested blinds position, 0..100% (0-top, 100-bottom, -1-stop at actual position, -2-move up/down/stop with intermediate position).
+11C2  00000 1     0      2    global int   bc06_blinds_setpoint_01          Requested blinds position, 0..100% (0-top, 100-bottom, -1-stop at actual position, -2-move up/down/stop with intermediate position).
+11C4  00000 1     0      2    global int   bc06_blinds_setpoint_02          Requested blinds position, 0..100% (0-top, 100-bottom, -1-stop at actual position, -2-move up/down/stop with intermediate position).
+11C6  00000 1     0      2    global int   bc06_blinds_setpoint_03          Requested blinds position, 0..100% (0-top, 100-bottom, -1-stop at actual position, -2-move up/down/stop with intermediate position).
+11C8  00000 1     0      2    global int   bc06_blinds_setpoint_04          Requested blinds position, 0..100% (0-top, 100-bottom, -1-stop at actual position, -2-move up/down/stop with intermediate position).
+11E0  00000 1     0      2    global int   bc06_blinds_time_index           Blinds channel for travel time to be written, 0..4 for up and 5..9 for down. Set to -1 to write all channels at once, both up and down times.
+11E2  00000 1     0      2    global int   bc06_blinds_time_data            Configuration setting, travel time up or down [*0.1s]. Range is 0.1..300s. To configure travel time, set blinds_time_data and blinds_time_index, then set blinds_time_req.
+11E8  00000 1     0      2    global int   bc06_blinds_stop_index           Blinds channel for intermediate position to be written, 0..4. Set to -1 to write all channels at once.
+11EA  00000 1     0      2    global int   bc06_blinds_stop_data            Configuration setting, intermediate position in percents (0..100%). To disable intermediate position, set to zero. To configure intermediate position, set blinds_stop_data and blinds_stop_index, then set blinds_stop_req.
+1200  00000 1     0      2    global int   bc07_blinds_setpoint_00          Requested blinds position, 0..100% (0-top, 100-bottom, -1-stop at actual position, -2-move up/down/stop with intermediate position).
+1202  00000 1     0      2    global int   bc07_blinds_setpoint_01          Requested blinds position, 0..100% (0-top, 100-bottom, -1-stop at actual position, -2-move up/down/stop with intermediate position).
+1204  00000 1     0      2    global int   bc07_blinds_setpoint_02          Requested blinds position, 0..100% (0-top, 100-bottom, -1-stop at actual position, -2-move up/down/stop with intermediate position).
+1206  00000 1     0      2    global int   bc07_blinds_setpoint_03          Requested blinds position, 0..100% (0-top, 100-bottom, -1-stop at actual position, -2-move up/down/stop with intermediate position).
+1208  00000 1     0      2    global int   bc07_blinds_setpoint_04          Requested blinds position, 0..100% (0-top, 100-bottom, -1-stop at actual position, -2-move up/down/stop with intermediate position).
+1220  00000 1     0      2    global int   bc07_blinds_time_index           Blinds channel for travel time to be written, 0..4 for up and 5..9 for down. Set to -1 to write all channels at once, both up and down times.
+1222  00000 1     0      2    global int   bc07_blinds_time_data            Configuration setting, travel time up or down [*0.1s]. Range is 0.1..300s. To configure travel time, set blinds_time_data and blinds_time_index, then set blinds_time_req.
+1228  00000 1     0      2    global int   bc07_blinds_stop_index           Blinds channel for intermediate position to be written, 0..4. Set to -1 to write all channels at once.
+122A  00000 1     0      2    global int   bc07_blinds_stop_data            Configuration setting, intermediate position in percents (0..100%). To disable intermediate position, set to zero. To configure intermediate position, set blinds_stop_data and blinds_stop_index, then set blinds_stop_req.
+1240  00000 1     0      2    global int   bc08_blinds_setpoint_00          Requested blinds position, 0..100% (0-top, 100-bottom, -1-stop at actual position, -2-move up/down/stop with intermediate position).
+1242  00000 1     0      2    global int   bc08_blinds_setpoint_01          Requested blinds position, 0..100% (0-top, 100-bottom, -1-stop at actual position, -2-move up/down/stop with intermediate position).
+1244  00000 1     0      2    global int   bc08_blinds_setpoint_02          Requested blinds position, 0..100% (0-top, 100-bottom, -1-stop at actual position, -2-move up/down/stop with intermediate position).
+1246  00000 1     0      2    global int   bc08_blinds_setpoint_03          Requested blinds position, 0..100% (0-top, 100-bottom, -1-stop at actual position, -2-move up/down/stop with intermediate position).
+1248  00000 1     0      2    global int   bc08_blinds_setpoint_04          Requested blinds position, 0..100% (0-top, 100-bottom, -1-stop at actual position, -2-move up/down/stop with intermediate position).
+1260  00000 1     0      2    global int   bc08_blinds_time_index           Blinds channel for travel time to be written, 0..4 for up and 5..9 for down. Set to -1 to write all channels at once, both up and down times.
+1262  00000 1     0      2    global int   bc08_blinds_time_data            Configuration setting, travel time up or down [*0.1s]. Range is 0.1..300s. To configure travel time, set blinds_time_data and blinds_time_index, then set blinds_time_req.
+1268  00000 1     0      2    global int   bc08_blinds_stop_index           Blinds channel for intermediate position to be written, 0..4. Set to -1 to write all channels at once.
+126A  00000 1     0      2    global int   bc08_blinds_stop_data            Configuration setting, intermediate position in percents (0..100%). To disable intermediate position, set to zero. To configure intermediate position, set blinds_stop_data and blinds_stop_index, then set blinds_stop_req.
+1280  00000 1     0      2    global int   bc09_blinds_setpoint_00          Requested blinds position, 0..100% (0-top, 100-bottom, -1-stop at actual position, -2-move up/down/stop with intermediate position).
+1282  00000 1     0      2    global int   bc09_blinds_setpoint_01          Requested blinds position, 0..100% (0-top, 100-bottom, -1-stop at actual position, -2-move up/down/stop with intermediate position).
+1284  00000 1     0      2    global int   bc09_blinds_setpoint_02          Requested blinds position, 0..100% (0-top, 100-bottom, -1-stop at actual position, -2-move up/down/stop with intermediate position).
+1286  00000 1     0      2    global int   bc09_blinds_setpoint_03          Requested blinds position, 0..100% (0-top, 100-bottom, -1-stop at actual position, -2-move up/down/stop with intermediate position).
+1288  00000 1     0      2    global int   bc09_blinds_setpoint_04          Requested blinds position, 0..100% (0-top, 100-bottom, -1-stop at actual position, -2-move up/down/stop with intermediate position).
+12A0  00000 1     0      2    global int   bc09_blinds_time_index           Blinds channel for travel time to be written, 0..4 for up and 5..9 for down. Set to -1 to write all channels at once, both up and down times.
+12A2  00000 1     0      2    global int   bc09_blinds_time_data            Configuration setting, travel time up or down [*0.1s]. Range is 0.1..300s. To configure travel time, set blinds_time_data and blinds_time_index, then set blinds_time_req.
+12A8  00000 1     0      2    global int   bc09_blinds_stop_index           Blinds channel for intermediate position to be written, 0..4. Set to -1 to write all channels at once.
+12AA  00000 1     0      2    global int   bc09_blinds_stop_data            Configuration setting, intermediate position in percents (0..100%). To disable intermediate position, set to zero. To configure intermediate position, set blinds_stop_data and blinds_stop_index, then set blinds_stop_req.
+1800  00000 1     0      1    global bit   AllUp                            
+1801  00000 1     0      1    global bit   SaveValues                       
+1802  00000 1     0      1    global bit   AllDown                          
+1803  00000 1     0      1    global bit   simulation                       0 - real time from RTC, 1 - simulation
+1804  00000 1     0      1    global bit   MFG_Up                           
+1805  00000 1     0      1    global bit   MFG_Down                         
+1806  00000 1     0      1    global bit   MyBit                            Testiranje komunikacije
+1807  00000 1     0      1    global bit   CRM_Up                           
+1808  00000 1     0      1    global bit   CRM_Down                         
+180E  00004 1     0      1    global bit   show_grid                        0 - grid not visible, 1- grid visible
+1810  00000 1     0      1    global bit   MyWord.0                         Testiranje komunikacije
+1810  00000 1     1      1    global bit   MyWord.1                         Testiranje komunikacije
+1810  00000 1     2      1    global bit   MyWord.2                         Testiranje komunikacije
+1810  00000 1     3      1    global bit   MyWord.3                         Testiranje komunikacije
+1810  00000 1     4      1    global bit   MyWord.4                         Testiranje komunikacije
+1810  00000 1     5      1    global bit   MyWord.5                         Testiranje komunikacije
+1810  00000 1     6      1    global bit   MyWord.6                         Testiranje komunikacije
+1810  00000 1     7      1    global bit   MyWord.7                         Testiranje komunikacije
+1810  00000 1     8      1    global bit   MyWord.8                         Testiranje komunikacije
+1810  00000 1     9      1    global bit   MyWord.9                         Testiranje komunikacije
+1810  00000 1     10     1    global bit   MyWord.10                        Testiranje komunikacije
+1810  00000 1     11     1    global bit   MyWord.11                        Testiranje komunikacije
+1810  00000 1     12     1    global bit   MyWord.12                        Testiranje komunikacije
+1810  00000 1     13     1    global bit   MyWord.13                        Testiranje komunikacije
+1810  00000 1     14     1    global bit   MyWord.14                        Testiranje komunikacije
+1810  00000 1     15     1    global bit   MyWord.15                        Testiranje komunikacije
+1820  00000 1     0      2    global int   i                                
+1822  00000 1     0      2    global int   m                                
+1824  00000 1     0      2    global int   n                                
+1826  00000 1     0      2    global int   time_step                        1, 2, 5, 10, 30
+1828  00000 1     0      2    global int   time_unit                        0 - sec, 1 - min, 2 - hour
+182A  00000 1     0      2    global int   time_dir                         -1 reverse time, 0 stop, 1 go forward in time
+182C  00000 1     0      2    global int   sun_x                            Sun x position for miniscada
+182E  00000 1     0      2    global int   sun_y                            Sun y position for miniscada
+1830  00000 1     0      2    global int   year                             
+1832  00000 1     0      2    global int   month                            
+1834  00000 1     0      2    global int   day                              
+1836  00000 1     0      2    global int   hour                             
+1838  00000 1     0      2    global int   minute                           
+183A  00000 1     0      2    global int   second                           
+183C  00000 1     0      2    global int   MyInt                            Testiranje komunikacije
+183E  00004 1     0      2    global int   MFGDesPos                        
+1840  00004 1     0      2    global int   MFGDesPos_Last                   
+1842  00004 1     0      2    global int   CRMDesPos                        
+1844  00004 1     0      2    global int   CRMDesPos_Last                   
+1846  0000C 6     0      2    global int   BlindsUpHours                    
+1852  0000C 6     0      2    global int   BlindsUpMinutes                  
+185E  00000 1     0      4    global long  MyLong                           Testiranje komunikacije
+1862  00000 1     0      4    global real  sun_alt                          Sun altitude in degrees, 0 horizon, 90 zenith
+1866  00000 1     0      4    global real  sun_az                           Sun azimuth, degrees, 0 north, 90 east...
+186A  00000 1     0      4    global real  MyReal                           Testiranje komunikacije
+186E  00004 1     0      4    global real  latitude                         Latitude of the place (degrees), north positive
+1872  00004 1     0      4    global real  longitude                        Longitude of the place (degrees), east positive
+1876  00004 1     0      4    global real  time_zone                        Difference between local time and Universal time (UT), in hours
+187A  00000 1     0      14   global bit   MyTimer.in                       Testiranje komunikacije
+187A  00000 1     2      14   global bit   MyTimer.q                        Testiranje komunikacije
+187A  00000 1     6      14   global long  MyTimer.pt                       Testiranje komunikacije
+187A  00000 1     10     14   global long  MyTimer.et                       Testiranje komunikacije

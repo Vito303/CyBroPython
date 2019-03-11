@@ -105,3 +105,12 @@ venv.bak/
 
 # npm
 node_modules
+
+# vs code
+.vscode
+
+# pycharm
+CyBroScgiServer/src/.idea
+
+# alc
+CyBroScgiServer/alc
