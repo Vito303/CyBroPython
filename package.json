@@ -1,0 +1,24 @@
+{
+  "name": "cybropython",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vito303/CyBroPython.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vito303/CyBroPython/issues"
+  },
+  "homepage": "https://github.com/Vito303/CyBroPython#readme"
+}
