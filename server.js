@@ -6,8 +6,8 @@ app.get('/get', (req, res) => {
     //console.log(req.query.tag);
     let tag = req.query.tag; 
     const { spawn } = require('child_process');
-    const pyProg = spawn('python', ['./CyBroGetSet.py', tag]);
-
+    const pyProg = spawn('python', ['./CyBroScgiServer/src/CyBroGetSet.py', tag]);
+    
     pyProg.stdout.on('data', function(data) {
         console.log(data.toString());
         res.write(data);
@@ -22,7 +22,7 @@ app.get('/set', (req, res) => {
     let tag = req.query.tag;
     let tagValue = req.query.value;
     const { spawn } = require('child_process');
-    const pyProg = spawn('python', ['./CyBroGetSet.py', tag, '--value', tagValue]);
+    const pyProg = spawn('python', ['./CyBroScgiServer/src/CyBroGetSet.py', tag, '--value', tagValue]);
 
     pyProg.stdout.on('data', function(data) {
         console.log(data.toString());

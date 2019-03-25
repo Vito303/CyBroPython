@@ -1,4 +1,5 @@
 import sys, time
+import json
 import threading
 import logger
 import cybrocomm
@@ -68,13 +69,33 @@ def pinger():
     tags = []
     tags.append(tag)
     result = cybro_comm.read_tag_values(tags)
-    print "Value %s" % (tags[0].value)
+    #print "Value %s" % (tags[0].value)
     result = cybro_comm.write_tag_values(tags, ["42"])
     result = cybro_comm.read_tag_values(tags)
-    print "Value %s" % (tags[0].value)
+    #print "Value %s" % (tags[0].value)
     #controller.read_alloc_file_immediately()
-    print "read variable done"
+    #print "read variable done"
 
 
 if __name__ == "__main__":
-    pinger()
+    #pinger()
+    import argparse
+
+    parser = argparse.ArgumentParser(description='Script command line tool.')
+    parser.add_argument('tag', metavar='c17598.cybro_iw03', nargs='?',
+                       help='Tag value name')
+    parser.add_argument('--value', nargs='?', default='None',
+                       help='Tag value to set')
+
+    args = parser.parse_args()
+    # print args
+
+    tag = args.tag
+    cybro_id = tag.split(".")[0][1:]
+    tagValue = args.value
+
+    data = {}
+    data['tag'] = 
+    data['value'] = 
+    json_data = json.dumps(data)
+    print(json_data)
