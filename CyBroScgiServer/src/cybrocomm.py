@@ -368,7 +368,7 @@ class CybroComm(CybroBase):
             except CommTimeout:
                 retry_number += 1
 
-        print "receive data %s" % (binascii.b2a_hex(rx_frame))
+        #print "receive data %s" % (binascii.b2a_hex(rx_frame))
         data = self.__extract_frame_data(rx_frame)
         if len(data) < 2:
             msg = "(c%d) Invalid received data length." % self.plc_nad
@@ -465,7 +465,7 @@ class CybroComm(CybroBase):
     def ping(self):
         data = struct.pack("<1B", CmdPing)
         send_data = self.__create_request_frame(data)
-        print "send data %s" % (binascii.b2a_hex(send_data))
+        #print "send data %s" % (binascii.b2a_hex(send_data))
         self.send_raw(send_data)
         # self.send_frame(self.__create_request_frame(data))
 
@@ -475,14 +475,14 @@ class CybroComm(CybroBase):
         tx_data = struct.pack("<1B", CmdReadStatus)
         #rx_data = self.send_frame(self.__create_request_frame(tx_data))
         send_data = self.__create_request_frame(tx_data)
-        print "send data %s" % (binascii.b2a_hex(send_data))
+        #print "send data %s" % (binascii.b2a_hex(send_data))
         rx_data = self.send_raw(send_data)
 
         if len(rx_data) >= 2:
             result = ReadStatusResponse()
             result.system_status = ord(rx_data[0])
             result.plc_status = ord(rx_data[1])
-            print "read status %s %s" % (result.plc_status, result.get_str())
+            #print "read status %s %s" % (result.plc_status, result.get_str())
             return result
         else:
             msg = "(c%d) Invalid data format." % self.plc_nad

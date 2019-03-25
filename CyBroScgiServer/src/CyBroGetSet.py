@@ -16,7 +16,11 @@ import tz_info
 
 import transaction_pool
 
-def pinger():
+controller = None
+cybro_comm = None
+alloce = None
+
+def init_controller(controller_id):
     globals.system_log = logger.create("service")
     globals.access_log = logger.create("access")
 
@@ -29,22 +33,27 @@ def pinger():
     globals.udp_proxy = udp_proxy.UDPProxy()
     globals.udp_proxy.start()
 
-    controller = globals.controllers.create(17598, False)
+    global controller
+    controller = globals.controllers.create(controller_id, False)
 
-    cybro_comm = cybrocomm.CybroComm(1, 17598)
+    global cybro_comm
+    cybro_comm = cybrocomm.CybroComm(1, controller_id)
     cybro_comm.controller = controller
     cybro_comm.data_received_event = threading.Event()
 
-    # print("ping start")
-    # cybro_comm.ping()
-    # print("ping done")
-    #
-    # print("read status start")
-    # cybro_comm.read_status()
-    # print("read status done")
+    global alloce
+    alloce = alloc.Allocation(controller_id)
+    alloce.read()
+    # controller.read_alloc_file_immediately()
 
-    print("read variable start")
-    req_tag = transaction_pool.RequestTag("c17598.MyInt", const.ReadRequest)
+def ping():
+    return cybro_comm.pin
+
+def read_status():
+    return cybro_comm.read_status()
+
+def create_tags(tag_name):
+    req_tag = transaction_pool.RequestTag(tag_name, const.ReadRequest)
     tag = controller.alloc.tags.get_by_name(req_tag.tag_name)
     if tag:
         req_tag.description = tag.description
@@ -61,41 +70,45 @@ def pinger():
     else:
         req_tag.error_code = "ReqTagUnknownTag"
 
-    alloce=None
-    alloce = alloc.Allocation(17598)
-    alloce.read()
-
     # cybro_comm.controller.__read_tags()
     tags = []
     tags.append(tag)
-    result = cybro_comm.read_tag_values(tags)
-    #print "Value %s" % (tags[0].value)
-    result = cybro_comm.write_tag_values(tags, ["42"])
-    result = cybro_comm.read_tag_values(tags)
-    #print "Value %s" % (tags[0].value)
-    #controller.read_alloc_file_immediately()
-    #print "read variable done"
+    return tags
 
+def read_tag(tag_name):
+    tags = create_tags(tag_name)
+    cybro_comm.read_tag_values(tags)
+    return tags[0].value
+
+def write_tag(tag_name, value):
+    tags = create_tags(tag_name)
+    result = cybro_comm.write_tag_values(tags, [value])
+    return result
 
 if __name__ == "__main__":
-    #pinger()
     import argparse
 
     parser = argparse.ArgumentParser(description='Script command line tool.')
-    parser.add_argument('tag', metavar='c17598.cybro_iw03', nargs='?',
-                       help='Tag value name')
-    parser.add_argument('--value', nargs='?', default='None',
-                       help='Tag value to set')
+    parser.add_argument('tag', metavar='c17598.cybro_iw03', nargs='?', help='Tag value name')
+    parser.add_argument('--value', nargs='?', default=None, help='Tag value to set')
 
     args = parser.parse_args()
-    # print args
 
     tag = args.tag
     cybro_id = tag.split(".")[0][1:]
     tagValue = args.value
 
+    init_controller(int(cybro_id))
+
     data = {}
-    data['tag'] = 
-    data['value'] = 
+    data['tag'] = tag
+    tag_value_readed = None
+    if tagValue is not None:
+        write_tag(tag, int(tagValue))
+        data['value'] = "Value is written."
+    else:
+        tag_value_readed = read_tag(tag)
+        data['value'] = tag_value_readed
+
     json_data = json.dumps(data)
     print(json_data)
