@@ -1,5 +1,8 @@
 # CyBroPython
 
+npm install
+node server.js
+
 Test call reading value:
 http://localhost:4000/get?tag=c17598.MyInt
 

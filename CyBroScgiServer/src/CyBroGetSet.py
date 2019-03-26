@@ -42,9 +42,10 @@ def init_controller(controller_id):
     cybro_comm.data_received_event = threading.Event()
 
     global alloce
+    # read file alloc always
+    controller.read_alloc_file_immediately()
     alloce = alloc.Allocation(controller_id)
     alloce.read()
-    # controller.read_alloc_file_immediately()
 
 def ping():
     return cybro_comm.pin
