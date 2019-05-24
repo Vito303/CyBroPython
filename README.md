@@ -1,11 +1,17 @@
 # CyBroPython
 
-npm install
+### Install:
+> apt install python <br>
+> apt install python-pip <br>
+> pip install pytz <br>
+> npm install
 
-node server.js
+### Run node server:
+> node server.js
 
-Test call reading value:
-http://localhost:4000/get?tag=c17598.MyInt
+### Test call 
+#### Reading value:
+> http://localhost:4000/get?tag=c17598.MyInt
 
-Test call writing value:
-http://localhost:4000/set?tag=c17598.MyInt&value=42
+#### Writing value:
+> http://localhost:4000/set?tag=c17598.MyInt&value=42
