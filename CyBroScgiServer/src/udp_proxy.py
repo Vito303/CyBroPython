@@ -7,6 +7,7 @@ import sys_config
 import globals
 import binascii
 import struct
+import zerorpc
 
 
 ###########################################################################
@@ -129,7 +130,7 @@ class UDPProxy(threading.Thread):
 
     #----------------------------------------------------------------------
 
-    def route_received_data(self, data, address):
+    def route_received_data(self, data, address, c):
 
         ip = address[0]
         port = address[1]
@@ -177,6 +178,8 @@ class UDPProxy(threading.Thread):
                     globals.sys_status.push_count += 1
                     cybro_log = logger.create("c%d" % frame.from_nad)
                     cybro_log.info("c%d push from %s:%d." % (frame.from_nad, ip, port))
+                    print("c%d push from %s:%d." % (frame.from_nad, ip, port))
+                    print c.PushRequest("c%d push from %s:%d." % (frame.from_nad, ip, port))
 
                     if sys_config.DebugTcpServer:
                         globals.tcp_log_server.info("c%d push from %s:%d." % (frame.from_nad, ip, port))
@@ -204,7 +207,8 @@ class UDPProxy(threading.Thread):
         import errno
         globals.system_log.info("UDPProxy started.")
 
-        
+        c = zerorpc.Client()
+        c.connect("tcp://127.0.0.1:4242")
 
         while not self.terminating:
             try:
@@ -212,7 +216,7 @@ class UDPProxy(threading.Thread):
                 (data, address) = self.sock.recvfrom(8192)
 
                 if not self.terminating:
-                    self.route_received_data(data, address)
+                    self.route_received_data(data, address, c)
             except socket.timeout:
                 pass
             except socket.error, e:

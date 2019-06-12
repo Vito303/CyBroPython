@@ -64,6 +64,7 @@ RelayEnable = False
 
 # debug log
 LogEnable = False
+#DebugComm = True
 DebugComm = False
 DebugPrints = False
 DebugRConsole = False
