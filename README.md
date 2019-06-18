@@ -4,6 +4,7 @@
 > apt install python <br>
 > apt install python-pip <br>
 > pip install pytz <br>
+> pip install zerorpc <br>
 > npm install
 
 ### Run node server:
